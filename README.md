@@ -1,24 +1,74 @@
-# README
+## usersテーブル
+|Column|Type|option|
+|------|----|------|
+|first_name|string|null:false|
+|last_name|string|null:false|
+|email|string|null: false, unique: true|
+|password|string|null:false|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Associatiton
+- has_many :negotiations
+- has_many :comments
 
-Things you may want to cover:
 
-* Ruby version
+## customersテーブル
+|Column|Type|option|
+|------|----|------|
+|name|string|null:false|
+|type|string|null:false|
+|person|string|null:false|
+|position|string||
+|tel|string||
+|mobile|string||
+|fax|string||
+|email|string||
+|product|string|null:false|
+|remarks|text||
 
-* System dependencies
+### Associatiton
+- has_many :negotiations
 
-* Configuration
 
-* Database creation
+## negotiationsテーブル
+|Column|Type|option|
+|------|----|------|
+|customer|references|null:false,foreign_key: true|
+|year|integer|null:false|
+|month|integer|null:false|
+|day|integer|null:false|
+|title|string|null:false|
+|body|text|null:false|
+|content|string|null:false|
+|importance|string|null:false|
+|user_id|references|null:false,foreign_key: true|
+|department|string|--------|
+|way|string|null:false|
+|next_nego|string||
+|next_year|integer||
+|next_month|integer||
+|next_day|integer||
 
-* Database initialization
+### Associatiton
+- belongs_to :user
+- belongs_to :customer
+- has_many :comments
 
-* How to run the test suite
+## commentsテーブル
+|Column|Type|option|
+|------|----|------|
+|negotiation_id|references|null:false,foreign_key: true|
+|year|integer|null:false|
+|month|integer|null:false|
+|day|integer|null:false|
+|body|text|null:false|
+|user_id|references|null:false,foreign_key: true|
+|way|string|null:false|
+|limit|string||
+|next_nego|string||
+|next_year|integer||
+|next_month|integer||
+|next_day|integer||
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Associatiton
+- belongs_to :negotiation
+- belongs_to :user
