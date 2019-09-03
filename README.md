@@ -51,6 +51,7 @@
 ### Associatiton
 - belongs_to :user
 - belongs_to :customer
+- has_many :comments
 
 ## commentsテーブル
 |Column|Type|option|
