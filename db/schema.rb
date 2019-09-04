@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_153802) do
   end
 
   create_table "negotiations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "customer_id", null: false
+    t.integer "customer_id", null: false
     t.bigint "user_id", null: false
     t.integer "year", null: false
     t.integer "month", null: false
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2019_09_03_153802) do
     t.integer "next_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_negotiations_on_customer_id"
     t.index ["user_id"], name: "index_negotiations_on_user_id"
   end
 
@@ -79,6 +78,5 @@ ActiveRecord::Schema.define(version: 2019_09_03_153802) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "negotiations", "customers"
   add_foreign_key "negotiations", "users"
 end

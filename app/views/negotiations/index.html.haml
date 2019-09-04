@@ -11,3 +11,8 @@ top page
   = link_to "ログイン", new_user_session_path
 
 = link_to "取引先", customers_path
+= link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
+
+.contents
+  - @negotiations.each do |negotiation|
+    = render partial: "negotiation", locals: { negotiation: negotiation }
