@@ -1,4 +1,4 @@
-class CreateComments < ActiveRecord::Migration[5.2]
+class CreateContinuations < ActiveRecord::Migration[5.2]
   def change
     create_table :continuations do |t|
       t.integer :user_id
