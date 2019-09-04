@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_09_03_153802) do
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "continuations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "negotiation_id"
     t.text "text"

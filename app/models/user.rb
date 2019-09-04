@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :negotiations
-  has_many :comments
+  has_many :continuations
 end

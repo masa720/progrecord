@@ -1,5 +1,5 @@
 class Negotiation < ApplicationRecord
   belongs_to :user
   belongs_to :customer
-  has_many :comments
+  has_many :continuations
 end
