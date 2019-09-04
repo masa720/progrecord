@@ -2,23 +2,16 @@ class ContinuationsController < ApplicationController
   before_action :set_continuation, only: [:show, :edit, :update, :destroy]
   before_action :set_negotiation
 
-  # def index
-  #   @continuations = Continuation.where(params[:id])
-  # end
-
   def new
     @continuation = Continuation.new
   end
 
   def create
-    # binding.pry
-    Continuation.create(conti_params)
-    redirect_to root_path
-    # if @continuation.save
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
+    if Continuation.create(conti_params)
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
