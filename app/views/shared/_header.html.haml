@@ -1,0 +1,22 @@
+.header
+  .title
+    %h1
+      ProgRecord
+    %p.subtitle
+      Progress + Record
+  .user-box
+    - if user_signed_in?
+      = current_user.last_name
+      = current_user.first_name
+      さんがログイン中です
+      %br/
+      = link_to "ログアウト",destroy_user_session_path, method: :delete
+    - else
+      = link_to "新規登録", new_user_registration_path
+      = link_to "ログイン", new_user_session_path
+  .nav-toggle
+    .nav-toggle__inner
+      .nav-toggle__inner__bar1
+      .nav-toggle__inner__bar2
+      .nav-toggle__inner__bar3
+  .nav-drawer

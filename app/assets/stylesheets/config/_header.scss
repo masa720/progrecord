@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #000033;
+  .title {
+    float: left;
+    width: 300px;
+    h1 {
+      font-size: 30px;
+      color: #FFF;
+    }
+    .subtitle {
+      color: #FFF;
+    }
+  }
+  .user-box{
+    float: right;
+    color: #FFF;
+  }
+}
+
