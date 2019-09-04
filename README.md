@@ -15,7 +15,7 @@
 |Column|Type|option|
 |------|----|------|
 |name|string|null:false|
-|type|string|null:false|
+|category|string|null:false|
 |person|string|null:false|
 |position|string||
 |tel|string||
