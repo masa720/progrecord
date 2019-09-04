@@ -1,5 +1,5 @@
 class ContinuationsController < ApplicationController
-  before_action :set_continuation, only: [:show, :edit, :update, :destroy]
+  before_action :set_continuation, only: [:edit, :update, :destroy]
   before_action :set_negotiation
 
   def new

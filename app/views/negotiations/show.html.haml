@@ -1,5 +1,6 @@
 = link_to "編集", edit_negotiation_path, data: {"turbolinks" => false}
 = link_to "削除", negotiation_path, method: :delete
 = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}
+= link_to "コメントする", new_negotiation_comment_path(@negotiation.id)
 
 = @continuation.text
