@@ -53,7 +53,7 @@
 - belongs_to :customer
 - has_many :comments
 
-## commentsテーブル
+## continuationsテーブル
 |Column|Type|option|
 |------|----|------|
 |negotiation_id|references|null:false,foreign_key: true|
@@ -68,6 +68,17 @@
 |next_year|integer||
 |next_month|integer||
 |next_day|integer||
+
+### Associatiton
+- belongs_to :negotiation
+- belongs_to :user
+
+## commentsテーブル
+|Column|Type|option|
+|------|----|------|
+|negotiation_id|references|null:false,foreign_key: true|
+|body|text|null:false|
+|user_id|references|null:false,foreign_key: true|
 
 ### Associatiton
 - belongs_to :negotiation
