@@ -1,5 +1,7 @@
 class CustomersController < ApplicationController
   def index
+    @customers = Customer.where(params[:id])
+    # .includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
 
   def show
@@ -21,7 +23,7 @@ class CustomersController < ApplicationController
 
   private
   def new_params
-    params.require(:customer).permit(:name, :type, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
+    params.require(:customer).permit(:name, :category, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
   end
 
 

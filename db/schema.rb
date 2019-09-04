@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_09_03_153802) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "type", null: false
+    t.string "category", null: false
     t.string "person", null: false
     t.string "position"
     t.string "tel"
