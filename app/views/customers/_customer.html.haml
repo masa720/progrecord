@@ -1,1 +1,4 @@
-= customer.name
+= link_to customer_path(customer.id) do
+  .box
+    %p
+      = customer.name

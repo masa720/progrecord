@@ -1,0 +1,69 @@
+= form_with model: @negotiation, method: :patch, local: true do |f|
+
+  .field
+    = f.label :会社名
+    %span.require 必須
+    %br/
+    = f.collection_select :customer_id, Customer.all, :id, :name, {prompt: "--"}
+
+  .field
+    = f.label :商談種類
+    %span.require 必須
+    %br/
+    = f.select :content, ["新規提案", "価格交渉", "契約関係", "納期調整", "その他"], {prompt: "--"}
+
+  .field
+    = f.label :対応年月日
+    %span.require 必須
+    %br/  
+    .wrap
+      .select
+        = f.select :year, [], {prompt: "--"}, {class: "select-year"}
+      %span 年
+      .select
+        = f.select :month, [], {prompt: "--"}, {class: "select-month"}
+      %span 月
+      .select
+        = f.select :day, [], {prompt: "--"}, {class: "select-day"}
+      %span 日
+
+  .field
+    = f.label :タイトル
+    = f.text_field :title
+
+  .field
+    = f.label :商談内容
+    = f.text_field :body
+
+  .field
+    = f.label :重要度
+    = f.select :importance, ["★", "★★", "★★★", "★★★★", "★★★★★"]
+
+  .field
+    = f.label :関係部署
+    = f.select :department, ["医局", "看護局", "技術局", "薬局", "事務局"], {prompt: "--"}
+
+  .field
+    = f.label :応対方法
+    = f.select :way, ["面会", "電話", "メール", "書面", "その他"], {prompt: "--"}
+
+  .field
+    = f.label :次回対応
+    = f.select :next_nego, ["あり", "なし", "未定"], {prompt: "--"}
+
+  .field
+    = f.label :次回年月日
+    %span.require 必須
+    %br/  
+    .wrap
+      .select
+        = f.select :next_year, [], {prompt: "--"}, {class: "select-nyear"}
+      %span 年
+      .select
+        = f.select :next_month, [], {prompt: "--"}, {class: "select-nmonth"}
+      %span 月
+      .select
+        = f.select :next_day, [], {prompt: "--"}, {class: "select-nday"}
+      %span 日
+  
+  = f.submit '編集'
