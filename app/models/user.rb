@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   has_many :negotiations
   has_many :continuations
+  has_many :comments
 end
