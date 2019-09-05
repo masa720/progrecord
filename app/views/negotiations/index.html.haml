@@ -9,19 +9,18 @@
     .newest-negotiation
       %span.title-box
         最近の取引
-      %p
-        テスト
+      = render partial: "negotiation", collection: @negotiations
+
     .newest-customer
       %span.title-box
         最近追加された取引先
-      %p
-        テスト
+      = render partial: "customers/customer", collection: @customers
 
 
 
   = link_to "取引先", customers_path
   = link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
 
-  .contents
-    - @negotiations.each do |negotiation|
-      = render partial: "negotiation", locals: { negotiation: negotiation }
+  -# .contents
+  -#   - @negotiations.each do |negotiation|
+  -#     = render partial: "negotiation", locals: { negotiation: negotiation }

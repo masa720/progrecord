@@ -4,6 +4,7 @@ class NegotiationsController < ApplicationController
 
   def index
     @negotiations = Negotiation.where(params[:id])
+    @customers = Customer.where(params[:id])
   end
 
   def new
