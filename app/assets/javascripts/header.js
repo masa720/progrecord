@@ -13,7 +13,7 @@ $(function() {
   $(document).on('click', function () {
     if ($('.nav-ver-item__user__window').is(':visible')) {
         // ナビが表示されていたらcloseを実行
-        $('.nav-ver-item__user').trigger('click');
+        $('.nav-ver-item__user__name').trigger('click');
     } else {
         // ナビが非表示の場合は起動しない
         event.stopPropagation();

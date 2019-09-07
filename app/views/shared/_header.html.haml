@@ -27,17 +27,19 @@
           -# %br/
           -# = link_to "ログアウト",destroy_user_session_path, method: :delete
         - else
-          = link_to "新規登録", new_user_registration_path
-          = link_to "ログイン", new_user_session_path
+          = link_to "新規登録", new_user_registration_path, class: "sign-up-btn"
+          = link_to "ログイン", new_user_session_path, class: "sign-in-btn"
       -# .panel{ style: "display:none" }
       -#   aaaa
       .nav-ver-item__user__window{ style: "display:none" }
         %ul
           - if user_signed_in?
             %li
+              マイページ              
+            %li
               = link_to "ログアウト",destroy_user_session_path, method: :delete
             %li
-            %li
+              
             %li
           - else
             %li

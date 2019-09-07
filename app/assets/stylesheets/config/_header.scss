@@ -59,6 +59,15 @@ a {
       color: #FFF;
       padding: 0 15px 0 15px;
       position: relative;
+      .sign-up-btn {
+        color: #FFF;
+        padding: 0 15px 0 0;
+        border-right: 1px solid #666;
+      }
+      .sign-in-btn {
+        color: #FFF;
+        padding: 0 0 0 10px;
+      }
       &__window {
         position: absolute;
         // top: 130px;
