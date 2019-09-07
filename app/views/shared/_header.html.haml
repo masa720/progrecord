@@ -1,42 +1,49 @@
 .header
-  .title
-    %h1
-      ProgRecord
-    %p.subtitle
-      Progress + Record
-.under-line
-  .header-item
-    .header-item__info
-      %i.far.fa-bell
-      %i.fas.fa-caret-down
-      .header-item__info__window
-        //新着コメントと進捗をJSでコントロール、余裕があれば件数バッチも
-    .header-item__user
-      - if user_signed_in?
-        %i.fas.fa-portrait
-        = current_user.last_name
-        = current_user.first_name
+  .title-box
+    =link_to root_path do
+      .title
+        %h1
+          ProgRecord
+        %p.subtitle
+          Progress + Record
+
+  .nav-ver
+    .test
+      = link_to "取引先", customers_path
+      = link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
+    .nav-ver-item
+      .nav-ver-item__info
+        %i.far.fa-bell
         %i.fas.fa-caret-down
-        -# %br/
-        -# = link_to "ログアウト",destroy_user_session_path, method: :delete
-      - else
-        = link_to "新規登録", new_user_registration_path
-        = link_to "ログイン", new_user_session_path
-    -# .panel{ style: "display:none" }
-    -#   aaaa
-    .header-item__user__window{ style: "display:none" }
-      %ul
+        .header-item__info__window
+          //新着コメントと進捗をJSでコントロール、余裕があれば件数バッチも
+      .nav-ver-item__user
         - if user_signed_in?
-          %li
-            = link_to "ログアウト",destroy_user_session_path, method: :delete
-          %li
-          %li
-          %li
+          .nav-ver-item__user__name
+            %i.fas.fa-portrait
+            = current_user.last_name
+            = current_user.first_name
+            %i.fas.fa-caret-down
+          -# %br/
+          -# = link_to "ログアウト",destroy_user_session_path, method: :delete
         - else
-          %li
-            = link_to "新規登録", new_user_registration_path
-          %li
-            = link_to "ログイン", new_user_session_path
+          = link_to "新規登録", new_user_registration_path
+          = link_to "ログイン", new_user_session_path
+      -# .panel{ style: "display:none" }
+      -#   aaaa
+      .nav-ver-item__user__window{ style: "display:none" }
+        %ul
+          - if user_signed_in?
+            %li
+              = link_to "ログアウト",destroy_user_session_path, method: :delete
+            %li
+            %li
+            %li
+          - else
+            %li
+              = link_to "新規登録", new_user_registration_path
+            %li
+              = link_to "ログイン", new_user_session_path
     -# .nav-toggle
     -#   .nav-toggle__inner
     -#     .nav-toggle__inner__bar1

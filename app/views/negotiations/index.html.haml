@@ -3,8 +3,8 @@
   .important-negotiation
     %span.title-box
       重要取引
-    %p
-      テスト
+    = render partial: "negotiation", collection: @importants
+
   .middle-container
     .newest-negotiation
       %span.title-box
@@ -18,8 +18,7 @@
 
 
 
-  = link_to "取引先", customers_path
-  = link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
+  
 
   -# .contents
   -#   - @negotiations.each do |negotiation|
