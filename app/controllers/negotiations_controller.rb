@@ -4,6 +4,8 @@ class NegotiationsController < ApplicationController
 
   def index
     @negotiations = Negotiation.where(params[:id])
+    @customers = Customer.where(params[:id])
+    @importants = Negotiation.includes(:user).where(importance: "★★★★").or(Negotiation.includes(:user).where(importance: "★★★★★")).order(created_at: "DESC").limit(3)
   end
 
   def new

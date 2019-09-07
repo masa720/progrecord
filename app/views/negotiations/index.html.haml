@@ -1,18 +1,25 @@
-top page
+= render "shared/header"
+.main-container
+  .important-negotiation
+    %span.title-box
+      重要取引
+    = render partial: "negotiation", collection: @importants
 
-- if user_signed_in?
-  = link_to "user", user_path(current_user.id)
-  = link_to "ログアウト",destroy_user_session_path, method: :delete
-  = current_user.last_name
-  = current_user.first_name
-  さんがログイン中です
-- else
-  = link_to "新規登録", new_user_registration_path
-  = link_to "ログイン", new_user_session_path
+  .middle-container
+    .newest-negotiation
+      %span.title-box
+        最近の取引
+      = render partial: "negotiation", collection: @negotiations
 
-= link_to "取引先", customers_path
-= link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
+    .newest-customer
+      %span.title-box
+        最近追加された取引先
+      = render partial: "customers/customer", collection: @customers
 
-.contents
-  - @negotiations.each do |negotiation|
-    = render partial: "negotiation", locals: { negotiation: negotiation }
+
+
+  
+
+  -# .contents
+  -#   - @negotiations.each do |negotiation|
+  -#     = render partial: "negotiation", locals: { negotiation: negotiation }
