@@ -8,27 +8,29 @@
     background-color: #F5F5F5;
     border: solid 3px #F5F5F5;
     border-radius: 20px;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
-}
-
-select {
-  height: 30px;
 }
 
 .field {
   border-bottom: 2px solid rgb(233, 229, 229);
   margin: 10px auto;
   padding: 10px;
-}
-
-.select {
-  display: inline-block;
-}
-
-.aaaa {
-  // border-radius: 10px;
-  width: 500px;
-  height: 300px;
+  .negotiation-body {
+    border-radius: 10px;
+    border: solid 1px rgb(233, 229, 229);
+    width: 500px;
+    height: 300px;
+  }
+  select {
+    height: 30px;
+  }
+  .select {
+    display: inline-block;
+  }
 }
 
 .submit-btn {

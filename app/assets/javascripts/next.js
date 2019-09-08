@@ -31,13 +31,7 @@ $(function(){
   $('#next-nego').on('change', function(){
     var nextNegotiation = document.getElementById('next-nego').value;
     if (nextNegotiation == "あり"){ //次回対応がありの場合
-      console.log("成功")
-      // $('aaaa').remove(); //次回対応が変更された時、以下を削除する
-        // $('#grandchildren_wrapper').remove();
         appendNextBox();
-      // })
-      // .fail(function(){
-      //   alert('エラーです');
       }
     else {
       $('#next-date').remove(); //次回対応が初期値になった時、以下を削除する
