@@ -1,6 +1,50 @@
-= link_to "編集", edit_negotiation_path, data: {"turbolinks" => false}
-= link_to "削除", negotiation_path, method: :delete
-= link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}
-= link_to "コメントする", new_negotiation_comment_path(@negotiation.id)
+= render "shared/header"
+.main-nego
+  .main-nego__detail
+    .main-nego__detail__head
+      .main-nego__detail__head__title
+        %p.nego-title
+          = @negotiation.title
+      .main-nego__detail__head__title
+        %p.nego-importance
+          = @negotiation.importance
+      .main-nego__detail__head__menu
+        %i.fas.fa-angle-down
+      .main-nego__detail__head__menu__window{ style: "display:none" }
+        %li
+          = link_to "編集", edit_negotiation_path, data: {"turbolinks" => false}
+          %br/
+        %li
+          = link_to "削除", negotiation_path, method: :delete, class: "confirm"
+    .main-nego__detail__head
+      .main-nego__detail__head__title
+        %p
+          #{@negotiation.year}/#{@negotiation.month}/#{@negotiation.day}
+      .main-nego__detail__head__user
+        %p
+          担当：#{@negotiation.user.last_name} #{@negotiation.user.first_name}
+    .main-nego__detail__box
+      .main-nego__detail__box__container
+        %p
+          = @negotiation.content
+      .main-nego__detail__box__container
+        %p
+          = @negotiation.customer.name
+    .main-nego__detail__box
+      .main-nego__detail__box__body
+        = @negotiation.body
+    .main-nego__detail__box
+      .main-nego__detail__box__container
+        %p
+          次回：#{@negotiation.next_nego}
+      - if @negotiation.next_nego == "あり"
+        .main-nego__detail__box__container
+          %p
+            #{@negotiation.next_year}/#{@negotiation.next_month}/#{@negotiation.next_day}
+    .main-nego__detail__box
+      .main-nego__detail__box__menu
+        = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}
+        = link_to "コメントする", new_negotiation_comment_path(@negotiation.id)
 
-= @continuation.text
+
+  
