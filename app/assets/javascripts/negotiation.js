@@ -120,11 +120,22 @@ $(function() {
 
 //商談記事の削除確認
 $(function(){
-  $(".confirm").on('click', function(){
+  $(".confirm-btn").on('click', function(){
       if(window.confirm("商談記録を削除しますがよろしいですか？")) {
           location.href = $(this).attr('href');
       } else {
           return false;
       }
+  });
+});
+
+//ボタンの色変更
+$(function(){
+  $(".menu-btn").hover(function(){
+    $(this).css('background', '#000044');
+    $(this).css('color', '#FFF');
+  }, function() {
+    $(this).css('background', '');
+    $(this).css('color', '');
   });
 });
