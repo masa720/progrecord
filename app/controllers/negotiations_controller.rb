@@ -1,6 +1,6 @@
 class NegotiationsController < ApplicationController
   before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
-  before_action :set_continuation, only: [:show, :edit, :update, :destroy]
+  # before_action :set_continuation, only: [:show, :edit, :update, :destroy]
 
   def index
     @negotiations = Negotiation.where(params[:id])

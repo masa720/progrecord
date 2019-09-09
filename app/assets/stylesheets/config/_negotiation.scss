@@ -39,3 +39,93 @@
   margin-left: 400px;
   padding: 0 20px;
 }
+
+//商談詳細
+
+.main-nego__detail {
+  border: solid 1px #888;
+  border-radius: 5px;
+  padding: 20px;
+  &__head {
+    display: flex;
+    margin: 20px 0 20px 0;
+    &__title {
+      .nego-title {
+        padding-right: 20px;
+        font-weight: bold;
+      }
+      .nego-importance {
+        color: #FF8C00;
+      }
+      display:block;
+    }
+    &__menu {
+      margin: 0 0 0 auto;
+      font-size: 20px;
+      position: relative;
+      &__window {
+        display:block;
+        padding: 10px;
+        width: 70px;
+        height: 50px;
+        right: 300px;
+        top: 200px;
+        position: absolute;
+        border: solid 1px #888;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+        z-index: 2;
+        li {
+          a {
+            padding: 5px;
+          }
+        }
+      }
+    }
+    &__user {
+      margin: 0 0 0 auto;
+    }
+  }
+  &__box {
+    margin: 20px 0 20px 0;
+    display: flex;
+    &__container {
+      padding-right: 20px;
+      display: flex;
+      .content {
+        padding: 2px 5px;
+        background-color: aquamarine;
+        border-radius: 5px;
+      }
+      .next-nego-text {
+        padding: 0 10px;
+        background-color: #000044;
+        font-weight: bold;
+        border-radius: 5px;
+        color: #fff;
+      }
+    }
+    &__body {
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 10px auto;
+      width: 100%;
+      min-height: 100px;
+      border: solid 1px #888;
+      border-radius: 5px;
+    }
+    &__menu {
+      margin: 0 0 0 auto;
+      .comment-btn {
+        padding: 10px;
+        border: solid 1px #888;
+
+      }
+      .continuation-btn {
+        padding: 10px 25px;
+        border: solid 1px #888;
+        
+      }
+    }
+  }
+}

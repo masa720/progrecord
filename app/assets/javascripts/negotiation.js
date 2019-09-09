@@ -95,3 +95,47 @@ $(function(){//誕生日
     $('.select-nmonth').change(calcDays);
   });
 });
+
+//編集削除メニュー表示
+$(function() {  
+  $(".main-nego__detail__head__menu").click(function () {
+    // ナビが表示される
+    var clickPanel = $(".main-nego__detail__head__menu__window");
+    clickPanel.toggle();
+    $(".main-nego__detail__head__menu__window:visible")
+    $(".main-nego__detail__head__menu__window:hidden")
+    return false;
+  });
+
+  $(document).on('click', function () {
+    if ($('.main-nego__detail__head__menu__window').is(':visible')) {
+        // ナビが表示されていたらcloseを実行
+        $('.main-nego__detail__head__menu').trigger('click');
+    } else {
+        // ナビが非表示の場合は起動しない
+        event.stopPropagation();
+    }
+  });
+});
+
+//商談記事の削除確認
+$(function(){
+  $(".confirm-btn").on('click', function(){
+      if(window.confirm("商談記録を削除しますがよろしいですか？")) {
+          location.href = $(this).attr('href');
+      } else {
+          return false;
+      }
+  });
+});
+
+//ボタンの色変更
+$(function(){
+  $(".menu-btn").hover(function(){
+    $(this).css('background', '#000044');
+    $(this).css('color', '#FFF');
+  }, function() {
+    $(this).css('background', '');
+    $(this).css('color', '');
+  });
+});
