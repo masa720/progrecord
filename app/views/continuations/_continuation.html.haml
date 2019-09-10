@@ -1,0 +1,39 @@
+- if @continuations
+  - @continuations.each do |cont|
+    .continuation-container
+      .main-nego
+        .main-nego__detail
+          .main-nego__detail__head
+            .main-nego__detail__head__menu
+              %i.fas.fa-angle-down
+            .main-nego__detail__head__menu__windo
+              %li
+                = link_to "編集", "#{@negotiation.id}/continuations/#{cont.id}/edit", data: {"turbolinks" => false}, class: "menu-btn"
+                %br/
+              %li
+                = link_to "削除", "#{@negotiation.id}/continuations/#{cont.id}", method: :delete, class: "confirm-btn menu-btn"
+          .main-nego__detail__head
+            .main-nego__detail__head__title
+              %p
+                #{cont.year}年 #{cont.month}月 #{cont.day}日
+            .main-nego__detail__head__user
+              %p
+                担当：#{cont.user.last_name} #{cont.user.first_name}
+          .main-nego__detail__box
+            .main-nego__detail__box__body
+              = cont.text
+          .main-nego__detail__box
+            .main-nego__detail__box__container
+              %p
+                次回：
+            - if cont.next_nego == "あり"
+              .main-nego__detail__box__container
+                %p.next-nego-text
+                  #{cont.next_year}年 #{cont.next_month}月 #{cont.next_day}日
+            - else
+              %p
+                = cont.next_nego
+          .main-nego__detail__box
+            .main-nego__detail__box__menu
+              = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}, class: "continuation-btn menu-btn"
+              = link_to "コメントする", new_negotiation_comment_path(cont.id), class: "comment-btn menu-btn"

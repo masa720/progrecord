@@ -8,6 +8,10 @@ class NegotiationsController < ApplicationController
     @importants = Negotiation.includes(:user).where(importance: "★★★★").or(Negotiation.includes(:user).where(importance: "★★★★★")).order(created_at: "DESC").limit(3)
   end
 
+  def show
+    @continuations = @negotiation.continuations.includes(:user)
+  end
+
   def new
     @negotiation = Negotiation.new
   end
