@@ -1,0 +1,24 @@
+- if comment.user_id == current_user.id
+  .comment-rcontainer
+    .comment-rcontainer__box
+      %i.fas.fa-portrait
+      = comment.user.last_name
+      = comment.user.first_name
+    .comment-rcontainer__box
+      .comment-rcontainer__box__body
+        = comment.body
+      .comment-rcontainer__box__body
+        %i.far.fa-clock
+        = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
+- else
+  .comment-lcontainer
+    .comment-lcontainer__box
+      %i.fas.fa-portrait
+      = comment.user.last_name
+      = comment.user.first_name
+    .comment-lcontainer__box
+      .comment-lcontainer__box__body
+        = comment.body
+      .comment-lcontainer__box__body
+        %i.far.fa-clock
+        = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")

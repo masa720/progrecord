@@ -10,6 +10,7 @@ class NegotiationsController < ApplicationController
 
   def show
     @continuations = @negotiation.continuations.includes(:user)
+    @comments = @negotiation.comments.includes(:user)
   end
 
   def new
