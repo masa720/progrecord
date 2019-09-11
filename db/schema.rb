@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_134935) do
 
   create_table "cnt_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "negotiation_id"
     t.integer "continuation_id"
     t.text "body"
     t.datetime "created_at", null: false
