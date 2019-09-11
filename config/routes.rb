@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :negotiations do
-    resources :continuations
+    resources :continuations do
+      resources :cnt_comments
+    end
     resources :comments
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
