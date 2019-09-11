@@ -1,0 +1,2 @@
+class CntCommentsController < ApplicationController
+end
