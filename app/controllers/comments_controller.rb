@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if Comment.create(conti_params)
+    if Comment.create(comment_params)
       redirect_to root_path
     else
       render :new
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(conti_params)
+    if @comment.update(comment_params)
       redirect_to root_path
     else
       render :edit
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  def conti_params
+  def comment_params
     params.require(:comment).permit(:body).merge(user_id: current_user.id, negotiation_id: @negotiation.id)
   end
 
