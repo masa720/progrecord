@@ -16,7 +16,7 @@
 
 
 
-$(function(){
+// $(function(){
 //   $('.comment-btn').click(function() {
 //     $(".modal-comment").fadeIn();
 
