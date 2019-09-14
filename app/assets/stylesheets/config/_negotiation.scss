@@ -7,13 +7,22 @@
       width: 60%;
       margin: 0 auto;
       padding: 20px;
-      background-color: #F5F5F5;
-      border: solid 3px #F5F5F5;
       border-radius: 20px;
       h2 {
         font-size: 20px;
         font-weight: bold;
       }
+    }
+  }
+  .nego-back {
+    background-color: #F5F5F5;
+    border: solid 3px #F5F5F5;
+    .field {
+      border-bottom: 2px solid rgb(233, 229, 229);
+    }
+    .submit-nego {
+      background-color: #F5F5F5;
+      border: solid 2px #888;
     }
   }
 }
@@ -24,7 +33,6 @@
 }
 
 .field {
-  border-bottom: 2px solid rgb(233, 229, 229);
   margin: 10px auto;
   padding: 10px;
   .negotiation-body {
@@ -48,11 +56,10 @@
 }
 
 .submit-btn {
-  background-color: #F5F5F5;
-  border: solid 2px #888;
   margin-left: 400px;
   padding: 0 20px;
 }
+
 
 //商談詳細
 

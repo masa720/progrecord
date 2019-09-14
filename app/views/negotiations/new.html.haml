@@ -1,7 +1,7 @@
 = render "shared/header"
 .container
   .main-nego
-    .main-nego__container
+    .main-nego__container.nego-back
       %h2
         商談記録の登録
       = form_with model: @negotiation, method: :post, local: true do |f|
@@ -57,4 +57,4 @@
 
         .next-negotiation-box
         
-        = f.submit '登録', class: "submit-btn"
+        = f.submit '登録', class: "submit-btn submit-nego"

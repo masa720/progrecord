@@ -1,6 +1,11 @@
-一覧
-= link_to "取引先登録", new_customer_path
+= render "shared/header"
+.container
+  .customer-container
+    .customer-container__title
+      %h2
+        取引先一覧
+      = link_to "取引先登録", new_customer_path
 
-.contents
-  - @customers.each do |customer|
-    = render partial: "customer", locals: { customer: customer }
+    .contents
+      - @customers.each do |customer|
+        = render partial: "customer", locals: { customer: customer }
