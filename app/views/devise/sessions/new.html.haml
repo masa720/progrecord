@@ -1,16 +1,31 @@
-%h2 ログイン
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password", placeholder: "6文字以上"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "ログイン"
+%script{src: "https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"}
+%script
+  bubbly({
+  blur:15,
+  colorStart: '#194167',
+  colorStop: '#112144',
+  radiusFunc:() => 5 + Math.random() * 15,
+  angleFunc:() => -Math.PI / 2,
+  velocityFunc:() => Math.random() * 7.5,
+  bubbleFunc:() => `hsla(${200 + Math.random() * 50}, 100%, 65%, .1)`,
+  bubbles:350 });
+.user-container
+  .user-container__main
+    %h2.log-titile
+      ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password", placeholder: "6文字以上"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me, class: "check-box"
+          = f.label :remember_me
+      .actions
+        = f.submit "ログイン", class: "sign-btn log-in-btn sign-up-btn"
+        = render "devise/shared/links"
