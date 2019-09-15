@@ -1,3 +1,37 @@
-取引先詳細
-= link_to "編集", edit_customer_path
-= link_to "削除", customer_path, method: :delete
+= render "shared/header"
+.container
+  .main-nego
+    .main-nego__container.customer-back
+      %p.customer-category
+        = @customer.category
+      %h2.customer-name
+        = @customer.name
+      .customer-back__box
+        %p
+          %i.fas.fa-phone-square
+          電話番号：#{@customer.tel} 
+        %p
+          %i.fas.fa-fax
+          FAX：#{@customer.fax}
+      .customer-back__box
+        %h3.customer-person
+          担当者情報
+        .customer-back__box__detail
+          %p
+            #{@customer.person} (役職：#{@customer.position})
+          %p
+            %i.fas.fa-mobile-alt
+            電話番号：#{@customer.mobile}
+          %p
+            %i.far.fa-envelope-open
+            メール：#{@customer.email}
+      .customer-back__box
+        取扱商材：#{@customer.product}
+      .customer-back__box
+        %p
+          ※備考
+        .customer-back__box__remarks
+          = @customer.remarks
+      .customer-back__edit
+        = link_to "編集", edit_customer_path
+        = link_to "削除", customer_path, method: :delete, class: "customer-delete"
