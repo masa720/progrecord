@@ -14,12 +14,13 @@
   background-color: #F0F8FF;
   border: solid 3px #F0F8FF;
   .field {
-    border-bottom: 2px solid rgb(218, 236, 250);
+    border-bottom: 1px solid #000033;
     input {
       width: 300px;
       height: 30px;
       border-radius: 5px;
-      border: solid 1px rgb(233, 229, 229);
+      border: solid 1px #e9e5e5;
+      padding: 0 10px; 
     }
     textarea {
       width: 100%;
@@ -30,6 +31,51 @@
   }
   .submit-cstm {
     background-color: #F0F8FF;
-    border: solid 2px rgb(218, 236, 250);
+    border: solid 2px #000033;
+  }
+
+  //取引先詳細
+  .customer-category {
+    text-align: center;
+    font-size: 14px;
+    margin-left: 440px;
+    color: white;
+    background-color: #000044;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .customer-name {
+    padding: 10px 0 10px 0;
+  }
+  &__box {
+    padding: 15px;
+    border-bottom: 1px solid #000033;
+    p {
+      padding-top: 10px;
+    }
+    .customer-person {
+      font-weight: bold;
+    }
+    &__detail {
+      p {
+        padding: 10px 0 0 10px;
+      }
+    }
+    &__remarks {
+      background-color: white;
+      border: 1px dotted rgb(233, 229, 229);
+      border-radius: 5px;
+      padding: 10px;
+      margin: 0 auto;
+      height: 200px;
+    }
+  }
+  &__edit {
+    padding: 15px;
+    margin-left: 360px;
+    .customer-btn {
+      margin: 0 5px;
+      padding: 5px;
+    }
   }
 }
