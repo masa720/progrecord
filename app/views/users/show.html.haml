@@ -1,0 +1,64 @@
+= render "shared/header"
+.container
+  .user-main
+    .user-main__head
+      .user-main__head__title
+        #{current_user.last_name} #{current_user.first_name}さん
+      .user-main__head__contents
+        %i.fas.fa-cog
+    .user-main__middle
+      .user-main__middle__list
+        商談件数：#{current_user.negotiations.length}件
+      .user-main__middle__list
+        進捗件数：#{current_user.continuations.length}件
+    .user-main__menu
+      %ul.tab-group
+        %li.tab-group__list.is-active
+          .horizon
+          商談案件
+        %li.tab-group__list
+          .horizon
+          進捗案件
+        %li.tab-group__list
+          .horizon
+          ピン留め
+    .user-main__detail
+      .user-main__detail__contents
+        - if current_user.negotiations.length == 0
+          %p.no-record
+            #{current_user.last_name} #{current_user.first_name}さんの商談はありません
+        - else
+          - current_user.negotiations.each do |negotiation|
+            = link_to negotiation_path(negotiation.id) do
+              .nego-box
+                .nego-box__body
+                  .nego-box__body__contents
+                    タイトル：#{negotiation.title}
+                  .nego-box__body__contents
+                    .nego-box__body__contents__element
+                      日付：#{negotiation.year}/#{negotiation.month}/#{negotiation.day}
+                  .nego-box__body__contents
+                    取引先：#{negotiation.customer.name}
+      .user-main__detail__contents{style: "display:none"}
+        - if current_user.continuations.length == 0
+          %p.no-record
+            #{current_user.last_name} #{current_user.first_name}さんの進捗はありません
+        - else
+          - current_user.continuations.each do |continuation|
+            = link_to negotiation_path(continuation.negotiation.id) do
+              .nego-box
+                .nego-box__body
+                  .nego-box__body__contents
+                    タイトル：#{continuation.negotiation.title}
+                  .nego-box__body__contents
+                    .nego-box__body__contents__element
+                      日付：#{continuation.year}/#{continuation.month}/#{continuation.day}
+                  .nego-box__body__contents
+                    取引先：#{continuation.negotiation.customer.name}
+      .user-main__detail__contents{style: "display:none"}
+        %p.no-record
+          #{current_user.last_name} #{current_user.first_name}さんのピン留めはありません
+      
+
+
+
