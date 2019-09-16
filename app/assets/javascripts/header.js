@@ -1,19 +1,20 @@
-$(function() {  
-  $(".nav-ver-item__user__name").click(function () {
-    // ナビが表示される
-    var clickPanel = $(".nav-ver-item__user__window");
-    clickPanel.toggle();
-    $(".nav-ver-item__user__window:visible")
-    $(this).css("background","#444");
-    $(".nav-ver-item__user__window:hidden")
-    $(this).css("background","#555");
-    return false;
+$(function() {
+  $('.dropdwn').click(function(){
+    if ($("ul.dropdwn_menu").is(':visible')) {
+      // ナビが表示されていたらcloseを実行
+      $("ul.dropdwn_menu").slideUp();
+    } else {
+      // ナビが非表示の場合は起動しない
+      $("ul:not(:animated)", this).slideDown();
+      $("ul.dropdwn_menu",this).css('display', 'block');
+        event.stopPropagation();
+    }
   });
 
   $(document).on('click', function () {
-    if ($('.nav-ver-item__user__window').is(':visible')) {
+    if ($("ul.dropdwn_menu").is(':visible')) {
         // ナビが表示されていたらcloseを実行
-        $('.nav-ver-item__user__name').trigger('click');
+      $("ul.dropdwn_menu",this).slideUp();
     } else {
         // ナビが非表示の場合は起動しない
         event.stopPropagation();

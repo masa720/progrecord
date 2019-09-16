@@ -8,44 +8,51 @@
           Progress + Record
 
   .nav-ver
-    .test
-      = link_to "取引先", customers_path
-      = link_to "商談記録", new_negotiation_path, data: {"turbolinks" => false}
-    .nav-ver-item
-      .nav-ver-item__info
+    %ul.nav-ver-item-left
+      %li.nav-ver-item-left__customers.dropdwn
+        %p
+          取引先
+          %i.fas.fa-caret-down
+        %ul.dropdwn_menu
+          %li
+            = link_to "取引先一覧", customers_path
+          %li
+            = link_to "取引先登録", new_customer_path
+      %li.nav-ver-item-left__negotiation.dropdwn
+        %p
+          商談記録
+          %i.fas.fa-caret-down
+        %ul.dropdwn_menu
+          %li
+            = link_to "商談記録一覧", new_negotiation_path, data: {"turbolinks" => false}
+          %li
+            = link_to "商談記録登録", new_negotiation_path, data: {"turbolinks" => false}
+    %ul.nav-ver-item
+      %li.nav-ver-item__info
         %i.far.fa-bell
         %i.fas.fa-caret-down
         .header-item__info__window
           //新着コメントと進捗をJSでコントロール、余裕があれば件数バッチも
-      .nav-ver-item__user
+      %li.nav-ver-item__user.dropdwn
         - if user_signed_in?
           .nav-ver-item__user__name
             %i.fas.fa-portrait
             = current_user.last_name
             = current_user.first_name
             %i.fas.fa-caret-down
-          -# %br/
-          -# = link_to "ログアウト",destroy_user_session_path, method: :delete
-        - else
-          = link_to "新規登録", new_user_registration_path, class: "sign-up-btn"
-          = link_to "ログイン", new_user_session_path, class: "sign-in-btn"
-      -# .panel{ style: "display:none" }
-      -#   aaaa
-      .nav-ver-item__user__window{ style: "display:none" }
-        %ul
-          - if user_signed_in?
+          %ul.dropdwn_menu
             %li
-              マイページ              
+              = link_to "マイページ",user_path(current_user.id)
             %li
               = link_to "ログアウト",destroy_user_session_path, method: :delete
             %li
               
             %li
-          - else
-            %li
-              = link_to "新規登録", new_user_registration_path
-            %li
-              = link_to "ログイン", new_user_session_path
+
+        - else
+          = link_to "新規登録", new_user_registration_path, class: "sign-up-btn"
+          = link_to "ログイン", new_user_session_path, class: "sign-in-btn"
+
     -# .nav-toggle
     -#   .nav-toggle__inner
     -#     .nav-toggle__inner__bar1

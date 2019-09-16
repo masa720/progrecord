@@ -1,48 +1,53 @@
-編集
-= form_with model: @customer, method: :patch, local: true do |f|
+= render "shared/header"
+.container
+  .main-nego
+    .main-nego__container.customer-back
+      %h2
+        取引先の編集
+      = form_with model: @customer, method: :patch, local: true do |f|
 
-  .field
-    = f.label :会社名
-    %span.require 必須
-    %br/
-    = f.text_field :name
+        .field
+          = f.label :会社名
+          %span.require 必須
+          %br/
+          = f.text_field :name
 
-  .field
-    = f.label :カテゴリ
-    %span.require 必須
-    %br/
-    = f.select :category, ["事務用品", "医療材料", "検査試薬", "医薬品"]
+        .field
+          = f.label :カテゴリ
+          %span.require 必須
+          %br/
+          = f.select :category, ["事務用品", "医療材料", "検査試薬", "医薬品"]
 
-  .field
-    = f.label :営業担当
-    = f.text_field :person
+        .field
+          = f.label :営業担当
+          = f.text_field :person
 
-  .field
-    = f.label :役職
-    = f.select :position, ["担当", "主任級", "営業所長", "エリア長", "社長"]
+        .field
+          = f.label :役職
+          = f.select :position, ["担当", "主任級", "営業所長", "エリア長", "社長"]
 
-  .field
-    = f.label :電話番号
-    = f.text_field :tel, placeholder: "ハイフン無し"
+        .field
+          = f.label :電話番号
+          = f.text_field :tel, placeholder: "ハイフン無し"
 
-  .field
-    = f.label :営業携帯電話
-    = f.text_field :mobile, placeholder: "ハイフン無し"
+        .field
+          = f.label :営業携帯電話
+          = f.text_field :mobile, placeholder: "ハイフン無し"
 
-  .field
-    = f.label :FAX
-    = f.text_field :fax, placeholder: "ハイフン無し"
+        .field
+          = f.label :FAX
+          = f.text_field :fax, placeholder: "ハイフン無し"
 
-  .field
-    = f.label :メールアドレス
-    = f.text_field :email
+        .field
+          = f.label :メールアドレス
+          = f.text_field :email
 
-  .field
-    = f.label :取扱商材
-    = f.text_field :product
+        .field
+          = f.label :取扱商材
+          = f.text_field :product
 
-  .field
-    = f.label :備考欄
-    = f.text_field :remarks
-  
-  = f.submit '編集'
+        .field
+          = f.label :備考欄
+          = f.text_field :remarks
+        
+        = f.submit '編集', class: "submit-btn submit-cstm"
