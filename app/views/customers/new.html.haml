@@ -16,7 +16,7 @@
           = f.label :カテゴリ
           %span.require 必須
           %br/
-          = f.select :category, ["事務用品", "医療材料", "検査試薬", "医薬品"]
+          = f.select :category, ["事務用品", "医療材料", "検査試薬", "医薬品"], {prompt: "--"}
 
         .field
           = f.label :営業担当
@@ -24,7 +24,7 @@
 
         .field
           = f.label :役職
-          = f.select :position, ["担当", "主任級", "営業所長", "エリア長", "社長"]
+          = f.select :position, ["担当", "主任級", "営業所長", "エリア長", "社長"], {prompt: "--"}
 
         .field
           = f.label :電話番号
