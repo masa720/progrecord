@@ -1,5 +1,5 @@
 .user-container {
-  text-align: center;
+  
   width: 400px;
   margin: 100px auto;
   &__main {
@@ -7,17 +7,23 @@
     background-color: rgba(182, 215, 252, 0.7);
     border-radius: 5px;
     .log-titile {
+      text-align: center;
       font-size: 20px;
     }
     input {
+      margin-left: 15px;
       margin-top: 5px;
       padding: 5px 10px;
       width: 90%;
       box-sizing: border-box;
     }
-    .sign-btn {
-      width: 100px;
-      border-radius: 5px;
+    .actions {
+      text-align: center;
+      .sign-btn {
+        margin: 0 50px 0 0;
+        width: 100px;
+        border-radius: 5px;
+      }
     }
     .check-box {
       width: 20px;

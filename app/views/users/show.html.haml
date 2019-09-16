@@ -5,7 +5,8 @@
       .user-main__head__title
         #{current_user.last_name} #{current_user.first_name}さん
       .user-main__head__contents
-        %i.fas.fa-cog
+        = link_to edit_user_registration_path(current_user.id) do
+          %i.fas.fa-cog
     .user-main__middle
       .user-main__middle__list
         商談件数：#{current_user.negotiations.length}件
