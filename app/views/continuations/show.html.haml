@@ -1,0 +1,57 @@
+= render "shared/header"
+.container
+  .main-nego
+    .main-nego__detail
+      .main-nego__detail__head
+        .main-nego__detail__head__title
+          = link_to :back do
+            %i.fas.fa-chevron-left
+          %p.nego-title
+            = @negotiation.title
+        .main-nego__detail__head__menu
+          %i.fas.fa-angle-down
+        .main-nego__detail__head__menu__window{ style: "display:none" }
+          %li
+            = link_to "編集", edit_negotiation_continuation_path, data: {"turbolinks" => false}, class: "menu-btn"
+            %br/
+          %li
+            = link_to "削除", negotiation_continuation_path, method: :delete, class: "confirm-btn menu-btn"
+      .main-nego__detail__head
+        .main-nego__detail__head__title
+          %p
+            #{@continuation.year}年 #{@continuation.month}月 #{@continuation.day}日
+        .main-nego__detail__head__user
+          %p
+            担当：#{@continuation.user.last_name} #{@continuation.user.first_name}
+      .main-nego__detail__box
+        .main-nego__detail__box__body
+          = @continuation.text
+      .main-nego__detail__box
+        .main-nego__detail__box__container
+          %p
+            次回：
+        - if @continuation.next_nego == "あり"
+          .main-nego__detail__box__container
+            %p.next-nego-text
+              #{@continuation.next_year}年 #{@continuation.next_month}月 #{@continuation.next_day}日
+        - else
+          %p
+            = @continuation.next_nego
+      .main-nego__detail__box
+        .main-nego__detail__box__menu
+          = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}, class: "continuation-btn menu-btn"
+          %a.comment-box-btn.menu-btn{ style: "display:none" }
+            コメントする
+      .main-nego__detail__box
+        .main-nego__detail__box__comment
+          = form_with model: @cnt_comment, url: negotiation_continuation_cnt_comments_path(@negotiation.id, @continuation.id), local: true do |c|
+            .field
+              = c.label :コメント
+              %span.cancel-btn
+                %i.fas.fa-times-circle
+              %br/
+              = c.text_area :body, class: "comment-area"
+              
+              = c.submit 'コメントする', class: "comment-submit menu-btn"
+
+    = render partial: "cnt_comments/cnt_comment", collection: @ccomments

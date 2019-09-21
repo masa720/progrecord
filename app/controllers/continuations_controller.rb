@@ -1,9 +1,13 @@
 class ContinuationsController < ApplicationController
-  before_action :set_continuation, only: [:edit, :update, :destroy]
+  before_action :set_continuation, only: [:edit, :show, :update, :destroy]
   before_action :set_negotiation
 
   def new
     @continuation = Continuation.new
+  end
+
+  def show
+    @ccomments = @continuation.cnt_comments.includes(:user)
   end
 
   def create

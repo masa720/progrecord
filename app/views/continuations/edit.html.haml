@@ -1,0 +1,38 @@
+= render "shared/header"
+.container
+  .main-nego
+    .main-nego__container.nego-back
+      %h2
+        経過進捗の編集
+      = form_with model: @continuation, url: negotiation_continuation_path, method: :patch, local: true do |f|
+
+        .field
+          = f.label :商談内容
+          = f.text_area :text
+
+        .field
+          = f.label :対応年月日
+          %span.require 必須
+          %br/  
+          .wrap
+            .select
+              = f.select :year, [], {prompt: "--"}, {class: "select-year"}
+            %span 年
+            .select
+              = f.select :month, [], {prompt: "--"}, {class: "select-month"}
+            %span 月
+            .select
+              = f.select :day, [], {prompt: "--"}, {class: "select-day"}
+            %span 日
+
+        .field
+          = f.label :応対方法
+          = f.select :way, ["面会", "電話", "メール", "書面", "その他"], {prompt: "--"}
+
+        .field
+          = f.label :次回対応
+          = f.select :next_nego, ["あり", "なし", "未定"], {prompt: "--"}, {id: "next-cnt"}
+
+        .next-negotiation-box
+        
+        = f.submit '編集', class: "submit-btn submit-nego"

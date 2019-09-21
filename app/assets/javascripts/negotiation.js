@@ -121,7 +121,7 @@ $(function() {
 //商談記事の削除確認
 $(function(){
   $(".confirm-btn").on('click', function(){
-      if(window.confirm("商談記録を削除しますがよろしいですか？")) {
+      if(window.confirm("削除してもよろしいですか？")) {
           location.href = $(this).attr('href');
       } else {
           return false;

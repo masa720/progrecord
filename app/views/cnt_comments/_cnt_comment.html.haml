@@ -1,28 +1,28 @@
-- if comment.user_id == current_user.id
+- if cnt_comment.user_id == current_user.id
   .comment-rcontainer
     .comment-rcontainer__head
       .comment-rcontainer__head__name
         %i.fas.fa-portrait
-        = comment.user.last_name
-        = comment.user.first_name
+        = cnt_comment.user.last_name
+        = cnt_comment.user.first_name
       .comment-rcontainer__head__btn
-        = link_to negotiation_comment_path(@negotiation.id, comment.id), method: :delete, class: "confirm-btn" do
+        = link_to negotiation_continuation_cnt_comment_path(@negotiation.id, @continuation.id, cnt_comment.id), method: :delete, class: "confirm-btn" do
           %i.fas.fa-times-circle.comment-delete-btn
     .comment-rcontainer__box
       .comment-rcontainer__box__body
-        = comment.body
+        = cnt_comment.body
       .comment-rcontainer__box__body
         %i.far.fa-clock
-        = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
+        = cnt_comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
 - else
   .comment-lcontainer
     .comment-lcontainer__box
       %i.fas.fa-portrait
-      = comment.user.last_name
-      = comment.user.first_name
+      = cnt_comment.user.last_name
+      = cnt_comment.user.first_name
     .comment-lcontainer__box
       .comment-lcontainer__box__body
-        = comment.body
+        = cnt_comment.body
       .comment-lcontainer__box__body
         %i.far.fa-clock
-        = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
+        = cnt_comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")

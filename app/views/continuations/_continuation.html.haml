@@ -4,15 +4,6 @@
       .main-nego
         .main-nego__detail
           .main-nego__detail__head
-            .main-nego__detail__head__menu
-              %i.fas.fa-angle-down
-            .main-nego__detail__head__menu__windo
-              %li
-                = link_to "編集", "#{@negotiation.id}/continuations/#{cont.id}/edit", data: {"turbolinks" => false}, class: "menu-btn"
-                %br/
-              %li
-                = link_to "削除", "#{@negotiation.id}/continuations/#{cont.id}", method: :delete, class: "confirm-btn menu-btn"
-          .main-nego__detail__head
             .main-nego__detail__head__title
               %p
                 #{cont.year}年 #{cont.month}月 #{cont.day}日
@@ -36,4 +27,8 @@
           .main-nego__detail__box
             .main-nego__detail__box__menu
               = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}, class: "continuation-btn menu-btn"
-              = link_to "コメントする", new_negotiation_comment_path(cont.id), class: "comment-btn menu-btn"
+              = link_to "コメントする", negotiation_continuation_path(@negotiation.id, cont.id), class: "comment-btn menu-btn"
+              - if cont.cnt_comments.length != 0
+                = link_to negotiation_continuation_path(@negotiation.id, cont.id), class: "comment-btn menu-btn" do
+                  %i.far.fa-comment
+                  = cont.cnt_comments.length
