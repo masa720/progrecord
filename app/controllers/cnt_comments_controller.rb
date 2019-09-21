@@ -1,5 +1,5 @@
 class CntCommentsController < ApplicationController
-  before_action :set_ccomment, only: [:edit, :update, :destroy]
+  before_action :set_ccomment, only: [:destroy]
   before_action :set_negotiation
   before_action :set_continuation
 
@@ -10,34 +10,25 @@ class CntCommentsController < ApplicationController
   def create
     if CntComment.create(cntcomment_params)
       # binding.pry
-      redirect_to root_path
+      redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
     else
       render :new
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @cnt_comment.update(cntcomment_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
   def destroy
-    if @cnt_comment.destroy
-      redirect_to  root_path
-    else
-      render :edit
+    if @cnt_comment.user_id == current_user.id
+      if @cnt_comment.destroy
+        redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
+      else
+        render :edit
+      end
     end
   end
 
   private
   def cntcomment_params
-    params.require(:cnt_comment).permit(:body).merge(user_id: current_user.id, negotiation_id: @negotiation.id, continuation_id: @continuation.id)
+    params.permit(:body).merge(user_id: current_user.id, negotiation_id: @negotiation.id, continuation_id: @continuation.id)
   end
 
   def set_negotiation

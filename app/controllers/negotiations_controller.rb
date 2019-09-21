@@ -1,6 +1,5 @@
 class NegotiationsController < ApplicationController
   before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
-  # before_action :set_continuation, only: [:show, :edit, :update, :destroy]
 
   def index
     @negotiations = Negotiation.where(params[:id])
@@ -11,7 +10,6 @@ class NegotiationsController < ApplicationController
   def show
     @continuations = @negotiation.continuations.includes(:user)
     @comments = @negotiation.comments.includes(:user)
-    @ccomments = @negotiation.cnt_comments.includes(:user)
   end
 
   def new
@@ -19,7 +17,6 @@ class NegotiationsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @negotiation = Negotiation.new(nego_params)
     if @negotiation.save
       redirect_to root_path
@@ -54,9 +51,5 @@ class NegotiationsController < ApplicationController
 
   def set_negotiation
     @negotiation = Negotiation.find(params[:id])
-  end
-
-  def set_continuation
-    @continuation = Continuation.find(params[:id])
   end
 end
