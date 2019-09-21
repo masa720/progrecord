@@ -55,6 +55,7 @@ group :development do
   gem 'active_hash'
   gem 'devise-i18n'
   gem 'devise-i18n-views'
+  gem 'ransack'
 end
 
 group :test do
