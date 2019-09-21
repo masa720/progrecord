@@ -4,6 +4,8 @@
     .main-nego__detail
       .main-nego__detail__head
         .main-nego__detail__head__title
+          = link_to :back do
+            %i.fas.fa-chevron-left
           %p.nego-title
             = @negotiation.title
         .main-nego__detail__head__title
@@ -48,19 +50,26 @@
       .main-nego__detail__box
         .main-nego__detail__box__menu
           = link_to "経過登録", new_negotiation_continuation_path(@negotiation.id), data: {"turbolinks" => false}, class: "continuation-btn menu-btn"
-          %a.comment-btn.menu-btn
+          %a.comment-box-btn.menu-btn
             コメントする
-          .modal-comment{ style: "display:none" }
-            = form_with model: @comment, url: negotiation_comments_path(@negotiation.id), local: true do |c|
-              .field
-                = c.label :コメント
-                %span.require 必須
-                %br/
-                = c.text_area :body
+          - if @negotiation.comments.length != 0
+            %button{class: "comment-show-btn menu-btn"}
+              %i.far.fa-comment
+              = @negotiation.comments.length
+      .main-nego__detail__box
+        .main-nego__detail__box__comment{ style: "display:none" }
+          = form_with model: @comment, url: negotiation_comments_path(@negotiation.id), local: true do |c|
+            .field
+              = c.label :コメント
+              %span.cancel-btn
+                %i.fas.fa-times-circle
+              %br/
+              = c.text_area :body, class: "comment-area"
               
-              = c.submit 'コメントする', class: "comment-submit"
+              = c.submit 'コメントする', class: "comment-submit menu-btn"
+          
+    .main-nego__detail__box__comment-box{ style: "display:none" }
+      = render partial: "comments/comment", collection: @comments
 
-          -# = link_to "コメントする", new_negotiation_comment_path(@negotiation.id), class: "comment-btn menu-btn"
-    = render partial: "comments/comment", collection: @comments
 = render "continuations/continuation"
   

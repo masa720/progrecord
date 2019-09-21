@@ -1,9 +1,13 @@
 - if comment.user_id == current_user.id
   .comment-rcontainer
-    .comment-rcontainer__box
-      %i.fas.fa-portrait
-      = comment.user.last_name
-      = comment.user.first_name
+    .comment-rcontainer__head
+      .comment-rcontainer__head__name
+        %i.fas.fa-portrait
+        = comment.user.last_name
+        = comment.user.first_name
+      .comment-rcontainer__head__btn
+        = link_to negotiation_comment_path(@negotiation.id, comment.id), method: :delete, class: "confirm-btn" do
+          %i.fas.fa-times-circle.comment-delete-btn
     .comment-rcontainer__box
       .comment-rcontainer__box__body
         = comment.body

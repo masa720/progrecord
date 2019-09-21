@@ -6,9 +6,6 @@
   border: solid 3px #F5F5F5;
   border-radius: 20px;
   width: 300px;
-  &__box {
-
-  }
 }
 
 .comment-rcontainer {
@@ -19,14 +16,10 @@
   border: solid 3px #F0F8FF;
   border-radius: 20px;
   width: 300px;
-  &__box {
-
+  &__head {
+    display: flex;
+    &__name {
+      width: 90%;
+    }
   }
-}
-
-.modal-comment {
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
