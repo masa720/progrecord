@@ -44,6 +44,14 @@ class NegotiationsController < ApplicationController
     end
   end
 
+  def negotiation_list
+    @negotiations = Negotiation.where(params[:id])
+    @search = Negotiation.ransack(params[:q])
+    @result = @search.result
+    @customers = Customer.where(params[:id])
+    @users = User.where(params[:id])
+  end
+
   private
   def nego_params
     params.require(:negotiation).permit(:customer_id, :year, :month, :day, :title, :body, :content, :importance, :department, :way, :next_nego, :next_year, :next_month, :next_day).merge(user_id: current_user.id)
