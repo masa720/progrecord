@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :negotiations do
+    collection do
+      get :negotiation_list
+    end
     resources :continuations do
       resources :cnt_comments
     end
