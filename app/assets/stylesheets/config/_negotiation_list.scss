@@ -1,0 +1,41 @@
+.list-container {
+  margin: 0 auto;
+  width: 700px;
+  &__title {
+    margin: 20px 0;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  &__search {
+    margin: 20px 0 20px 0;
+    &__area {
+      margin: 0 120px;
+      .search-area {
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: solid 1px #888;
+      }
+      .search-btn {
+        margin-left: 5px;
+        font-size: 16px;
+        padding: 9px;
+        border: solid 1px #888;
+        background-color: #F5F5F5;
+        border-radius: 5px;
+      }
+    }
+    
+    &__box {
+      display: flex;
+      &__item {
+        margin: 10px 20px;
+        .search-list {
+          height: 30px;
+        }
+      }
+    }
+  }
+}
