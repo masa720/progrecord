@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_134935) do
+ActiveRecord::Schema.define(version: 2019_09_22_062517) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cnt_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +31,12 @@ ActiveRecord::Schema.define(version: 2019_09_11_134935) do
     t.integer "user_id"
     t.integer "negotiation_id"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_134935) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "category", null: false
+    t.integer "category_id", null: false
     t.string "person", null: false
     t.string "position"
     t.string "tel"
@@ -60,6 +72,12 @@ ActiveRecord::Schema.define(version: 2019_09_11_134935) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "negotiations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.bigint "user_id", null: false
@@ -68,9 +86,9 @@ ActiveRecord::Schema.define(version: 2019_09_11_134935) do
     t.integer "day", null: false
     t.string "title", null: false
     t.text "body", null: false
-    t.string "content", null: false
+    t.integer "content_id", null: false
     t.string "importance", null: false
-    t.string "department"
+    t.integer "department_id"
     t.string "way", null: false
     t.string "next_nego"
     t.integer "next_year"

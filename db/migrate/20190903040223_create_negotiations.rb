@@ -8,9 +8,9 @@ class CreateNegotiations < ActiveRecord::Migration[5.2]
       t.integer :day, null:false
       t.string :title, null:false
       t.text :body, null:false
-      t.string :content, null:false
+      t.integer :content_id, null:false
       t.string :importance, null:false
-      t.string :department
+      t.integer :department_id
       t.string :way, null:false
       t.string :next_nego
       t.integer :next_year
