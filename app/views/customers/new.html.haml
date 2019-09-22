@@ -16,7 +16,7 @@
           = f.label :カテゴリ
           %span.require 必須
           %br/
-          = f.select :category, ["事務用品", "医療材料", "検査試薬", "医薬品"], {prompt: "--"}
+          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "--"}
 
         .field
           = f.label :営業担当

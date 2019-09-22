@@ -9,14 +9,20 @@
         .field
           = f.label :タイトル
           = f.text_field :title,class: "title-inputbox"
+
         .field
           = f.label :会社名
           = f.collection_select :customer_id, Customer.all, :id, :name, {prompt: "--"}
           %span.require 必須
 
         .field
+          = f.label :担当者
+          = f.collection_select :user_id, User.all, :id, :view_last_name_and_first_name, {prompt: "--"}
+          %span.require 必須
+
+        .field
           = f.label :商談種類
-          = f.select :content, ["新規提案", "価格交渉", "契約関係", "納期調整", "その他"], {prompt: "--"}
+          = f.collection_select :content_id, Content.all, :id, :name, {prompt: "--"}
           %span.require 必須
         .field
           = f.label :対応年月日
@@ -33,8 +39,6 @@
               = f.select :day, [], {prompt: "--"}, {class: "select-day"}
             %span 日
 
-
-
         .field
           = f.label :商談内容
           %br/
@@ -46,7 +50,7 @@
 
         .field
           = f.label :関係部署
-          = f.select :department, ["医局", "看護局", "技術局", "薬局", "事務局"], {prompt: "--"}
+          = f.collection_select :department_id, Department.all, :id, :name, {prompt: "--"}
 
         .field
           = f.label :応対方法
