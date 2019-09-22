@@ -1,4 +1,5 @@
 class ContinuationsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   before_action :set_continuation, only: [:edit, :show, :update, :destroy]
   before_action :set_negotiation
 

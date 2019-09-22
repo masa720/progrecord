@@ -1,4 +1,5 @@
 class CntCommentsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   before_action :set_ccomment, only: [:destroy]
   before_action :set_negotiation
   before_action :set_continuation
