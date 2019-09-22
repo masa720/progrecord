@@ -8,6 +8,23 @@
         %i.fas.fa-edit
         取引先登録
 
-    .contents
-      - @customers.each do |customer|
-        = render partial: "customer", locals: { customer: customer }
+    -# .contents
+    -#   - @customers.each do |customer|
+    -#     = render partial: "customer", locals: { customer: customer }
+    .list-container__search
+      = search_form_for @cs_search , url: customers_path do |f|
+        .list-container__search__area
+          %i.fas.fa-search
+          = f.text_field :name_or_person_cont, class: "search-area"
+          = f.submit "検索する", class: "search-btn"
+        -# .list-container__search__box
+        -#   .list-container__search__box__item
+        -#     = f.label :category_eq, '取引先'
+        -#     = f.collection_select( :category_eq, @customers.category, {include_blank: "指定なし"}, {class: "search-list"})
+        -#   -# .list-container__search__box__item
+        -#   -#   = f.label :person_eq, '担当者'
+          -#   = f.collection_select( :person_eq, @customers, :id, :person, {include_blank: "指定なし"}, {class: "search-list"})
+        
+    .list-container__result
+      - if @cs_result.any?
+        = render @cs_result
