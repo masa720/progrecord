@@ -3,6 +3,9 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.where(params[:id])
+    # binding.pry
+    @cs_search = Customer.ransack(params[:q])
+    @cs_result = @cs_search.result
     # .includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
 
@@ -44,7 +47,7 @@ class CustomersController < ApplicationController
 
   private
   def new_params
-    params.require(:customer).permit(:name, :category, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
+    params.require(:customer).permit(:name, :category_id, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
   end
 
   def set_customer

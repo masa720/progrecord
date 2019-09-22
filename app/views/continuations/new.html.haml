@@ -9,6 +9,11 @@
         .field
           = f.label :商談内容
           = f.text_area :text
+        
+        .field
+          = f.label :担当者
+          = f.collection_select :user_id, User.all, :id, :view_last_name_and_first_name, {prompt: "--"}
+          %span.require 必須
 
         .field
           = f.label :対応年月日

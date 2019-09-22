@@ -4,8 +4,27 @@
     .customer-container__title
       %h2
         取引先一覧
-      = link_to "取引先登録", new_customer_path
+      = link_to new_customer_path do
+        %i.fas.fa-edit
+        取引先登録
 
-    .contents
-      - @customers.each do |customer|
-        = render partial: "customer", locals: { customer: customer }
+    -# .contents
+    -#   - @customers.each do |customer|
+    -#     = render partial: "customer", locals: { customer: customer }
+    .list-container__search
+      = search_form_for @cs_search , url: customers_path do |f|
+        .list-container__search__area
+          %i.fas.fa-search
+          = f.text_field :name_or_person_cont, class: "search-area"
+          = f.submit "検索する", class: "search-btn"
+        .list-container__search__box
+          .list-container__search__box__item
+            = f.label :category_id_eq, 'カテゴリー'
+            = f.collection_select( :category_id_eq, Category.all, :id, :name, {include_blank: "指定なし"}, {class: "search-list"})
+
+    .list-container__result
+      - if @cs_result.any?
+        %i.fas.fa-filter
+        = sort_link(@cs_search, :name, "登録名")
+        = sort_link(@cs_search, :updated_at, "登録順")
+        = render @cs_result

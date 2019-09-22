@@ -3,7 +3,7 @@
   .main-nego
     .main-nego__container.customer-back
       %p.customer-category
-        = @customer.category
+        = @customer.category.name
       %h2.customer-name
         = @customer.name
       .customer-back__box
@@ -31,7 +31,7 @@
         %p
           ※備考
         .customer-back__box__remarks
-          = @customer.remarks
+          = simple_format(@customer.remarks)
       .customer-back__edit
         = link_to "編集", edit_customer_path, class: "customer-btn"
         = link_to "削除", customer_path, method: :delete, class: "customer-delete customer-btn"

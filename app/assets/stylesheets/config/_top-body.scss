@@ -1,21 +1,27 @@
 .main-container {
   margin: 110px 30px auto;
   .important-negotiation {
-    // position: relative;
     margin: 2em 0 0;
     padding: 0.5em 1em;
-    // border: solid 3px #95ccff;
-    // border-radius: 8px;
+    &__nothing {
+      height: 200px;
+      width: 100%;
+      margin: 5px;
+      border-radius: 5px;
+      border: solid 1px rgb(198, 198, 198);
+      .nothing-word {
+        padding-top: 100px;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
     .title-box {
-      // position: absolute;
       display: inline-block;
       top: -13px;
       left: 10px;
       padding: 0 9px;
       line-height: 1;
       font-size: 19px;
-      // background: #FFF;
-      // color: #95ccff;
       font-weight: bold;
     }
     p {
@@ -28,18 +34,26 @@
       float: left;
       width: 45%;
       height: 400px;
-      // position: relative;
       padding: 0.5em 1em;
+      &__nothing {
+        height: 200px;
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        border: solid 1px rgb(198, 198, 198);
+        .nothing-word {
+          padding-top: 100px;
+          text-align: center;
+          font-size: 16px;
+        }
+      }
       .title-box {
-        // position: absolute;
         display: inline-block;
         top: -13px;
         left: 10px;
         padding: 0 9px;
         line-height: 1;
         font-size: 19px;
-        // background: #FFF;
-        // color: #95ccff;
         font-weight: bold;
       }
       p {
@@ -51,18 +65,26 @@
       float: right;
       width: 45%;
       height: 400px;
-      // position: relative;
       padding: 0.5em 1em;
+      &__nothing {
+        height: 200px;
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        border: solid 1px rgb(198, 198, 198);
+        .nothing-word {
+          padding-top: 100px;
+          text-align: center;
+          font-size: 16px;
+        }
+      }
       .title-box {
-        // position: absolute;
         display: inline-block;
         top: -13px;
         left: 10px;
         padding: 0 9px;
         line-height: 1;
         font-size: 19px;
-        // background: #FFF;
-        // color: #95ccff;
         font-weight: bold;
       }
       p {
@@ -73,20 +95,9 @@
   }
 }
 
-
-// .nego-box {
-//   margin: 5px 0 0 0;
-//   padding: 10px;
-//   background-color: #bed9f165;
-// }
-// .customer-box, .nego-box :first-child{
-//   margin: 0 0 15px 0;
-// }
-
 .customer-box, .nego-box{
   padding: 0.5em 1em;
   margin: 0 0 15px 0;
-  // color: #5d627b;
   background: white;
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);

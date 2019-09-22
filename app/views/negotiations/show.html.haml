@@ -25,17 +25,19 @@
             #{@negotiation.year}年 #{@negotiation.month}月 #{@negotiation.day}日
         .main-nego__detail__head__user
           %p
+            関連部署：#{@negotiation.department.name}
+          %p
             担当：#{@negotiation.user.last_name} #{@negotiation.user.first_name}
       .main-nego__detail__box
         .main-nego__detail__box__container
           %p.content
-            = @negotiation.content
+            = @negotiation.content.name
         .main-nego__detail__box__container
           %p
             = @negotiation.customer.name
       .main-nego__detail__box
         .main-nego__detail__box__body
-          = @negotiation.body
+          = simple_format(@negotiation.body)
       .main-nego__detail__box
         .main-nego__detail__box__container
           %p

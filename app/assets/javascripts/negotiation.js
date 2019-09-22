@@ -1,4 +1,4 @@
-$(function(){//誕生日
+$(function(){
   //日付範囲決定
   function calcDays(){
     $('.select-day').empty();
@@ -26,7 +26,7 @@ $(function(){//誕生日
   var d = 0;
   $(function(){
     //1900年～2019年まで表示
-    for (var i = 2019; i >= 1900; i--) {
+    for (var i = 2025; i >= 2010; i--) {
       $('.select-year').append('<option value="' + i + '">' + i + '</option>');
     }
     //1月～12月まで表示
@@ -47,7 +47,7 @@ $(function(){//誕生日
   });
 });
 
-$(function(){//誕生日
+$(function(){
   //日付範囲決定
   function calcDays(){
     $('.select-nday').empty();
@@ -75,7 +75,7 @@ $(function(){//誕生日
   var d = 0;
   $(function(){
     //1900年～2019年まで表示
-    for (var i = 2019; i >= 1900; i--) {
+    for (var i = 2025; i >= 2010; i--) {
       $('.select-nyear').append('<option value="' + i + '">' + i + '</option>');
     }
     //1月～12月まで表示

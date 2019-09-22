@@ -2,24 +2,33 @@
 .main-container
   .important-negotiation
     %span.title-box
-      重要取引
-    = render partial: "negotiation", collection: @importants
-
+      %i.fas.fa-exclamation-circle
+      重要商談
+    - if @importants.length != 0
+      = render partial: "negotiation", collection: @importants
+    - else
+      .important-negotiation__nothing
+        %p.nothing-word
+          最近の重要商談はありません
   .middle-container
     .newest-negotiation
       %span.title-box
-        最近の取引
-      = render partial: "negotiation", collection: @negotiations
+        %i.fas.fa-hands-helping
+        最近の商談
+      - if @negotiations.length != 0
+        = render partial: "negotiation", collection: @negotiations
+      - else
+        .newest-negotiation__nothing
+          %p.nothing-word
+            最近の商談はありません
 
     .newest-customer
       %span.title-box
+        %i.fas.fa-building
         最近追加された取引先
-      = render partial: "customers/customer", collection: @customers
-
-
-
-  
-
-  -# .contents
-  -#   - @negotiations.each do |negotiation|
-  -#     = render partial: "negotiation", locals: { negotiation: negotiation }
+      - if @customers.length != 0
+        = render partial: "customers/customer", collection: @customers
+      - else
+        .newest-customer__nothing
+          %p.nothing-word
+            最近追加された取引先はありません

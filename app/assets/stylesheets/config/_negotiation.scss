@@ -21,6 +21,13 @@
         input {
           padding: 0 10px;
         }
+        #continuation_text {
+          width: 450px;
+          height: 200px;
+          padding: 5px 10px;
+          border: solid 1px #888;
+          border-radius: 10px;
+        }
       }
       .submit-nego {
         background-color: #F5F5F5;

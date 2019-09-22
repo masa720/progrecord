@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :continuations
   has_many :comments
   has_many :cnt_comments
+
+  def view_last_name_and_first_name
+    self.last_name + " " + self.first_name
+  end
 end

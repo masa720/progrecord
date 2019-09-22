@@ -1,0 +1,39 @@
+= render "shared/header"
+.container
+  .list-container
+    .list-container__title
+      %h2
+        商談記録一覧
+      = link_to new_negotiation_path do
+        %i.fas.fa-edit
+        商談記録登録
+
+    .list-container__search
+      = search_form_for @search , url: negotiation_list_negotiations_path do |f|
+        .list-container__search__area
+          %i.fas.fa-search
+          = f.text_field :title_or_body_cont, class: "search-area"
+          = f.submit "検索する", class: "search-btn"
+        .list-container__search__box
+          .list-container__search__box__item
+            = f.label :customer_id_eq, '取引先'
+            = f.collection_select( :customer_id_eq, @customers, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
+ 
+          .list-container__search__box__item
+            = f.label :uer_id_eq, '担当者'
+            = f.collection_select( :user_id_eq, @users, :id, :view_last_name_and_first_name, {include_blank:  "指定なし"}, {class: "search-list"})
+ 
+          .list-container__search__box__item
+            = f.label :department_id_eq, '関連部署'
+            = f.collection_select( :department_id_eq, Department.all, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
+
+          .list-container__search__box__item
+            = f.label :content_id_eq, '商談内容'
+            = f.collection_select( :content_id_eq, Content.all, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
+    .list-container__result
+      - if @result.any?
+        %i.fas.fa-filter
+        = sort_link(@search, :title, "タイトル")
+        = sort_link(@search, :importance, "重要度")
+        = sort_link(@search, :updated_at, "更新順")
+        = render @result
