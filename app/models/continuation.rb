@@ -1,5 +1,5 @@
 class Continuation < ApplicationRecord
   belongs_to :negotiation
   belongs_to :user
-  has_many :cnt_comments
+  has_many :cnt_comments, dependent: :destroy
 end
