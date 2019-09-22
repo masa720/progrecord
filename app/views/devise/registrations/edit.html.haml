@@ -18,11 +18,11 @@
       .field
         = f.label :last_name, "姓 (全角)"
         %br/
-        = f.text_field :last_name, placeholder: "例) 田中"
+        = f.text_field :last_name, placeholder: "例) 田中", class: "last_name"
       .field
         = f.label :first_name, "名 (全角)"
         %br/
-        = f.text_field :first_name, placeholder: "例) 太郎"
+        = f.text_field :first_name, placeholder: "例) 太郎", class: "first_name"
       .field
         = f.label :email
         %br/
@@ -33,16 +33,16 @@
       .field
         = f.label :password
         %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+        = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "password"
 
       .field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "password_confirmation"
       .field
         = f.label :current_password
         %br/
-        = f.password_field :current_password, autocomplete: "current-password", placeholder: "6文字以上"
+        = f.password_field :current_password, autocomplete: "current-password", placeholder: "6文字以上", class: "current_password"
       .actions
         = f.submit "更新", class: "sign-btn sign-up-btn"
         = link_to "戻る", :back

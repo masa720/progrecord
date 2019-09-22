@@ -19,3 +19,4 @@ $(function() {
     $('.hide').css('display','block'); 
   });
 });
+

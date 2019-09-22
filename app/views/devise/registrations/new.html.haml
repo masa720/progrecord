@@ -19,29 +19,29 @@
         = f.label :last_name, "姓 (全角)"
         %span.require 必須
         %br/
-        = f.text_field :last_name, placeholder: "例) 田中"
+        = f.text_field :last_name, placeholder: "例) 田中", class: "last_name"
 
       .field
         = f.label :first_name, "名 (全角)"
         %span.require 必須
         %br/
-        = f.text_field :first_name, placeholder: "例) 太郎"
+        = f.text_field :first_name, placeholder: "例) 太郎", class: "first_name"
 
       .field
         = f.label :email
         %span.require 必須
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "email"
       .field
         = f.label :password
         %span.require 必須
         %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+        = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "password"
       .field
         = f.label :password_confirmation
         %span.require 必須
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "password_confirmation"
       .actions
         = f.submit "登録する", class: "sign-btn sign-up-btn"
         = render "devise/shared/links"

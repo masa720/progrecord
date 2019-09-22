@@ -2,8 +2,9 @@
 .main-container
   .important-negotiation
     %span.title-box
-      %i.fas.fa-exclamation-circle
-      重要商談
+      = link_to negotiation_list_negotiations_path, data: {"turbolinks" => false} do
+        %i.fas.fa-exclamation-circle
+        重要商談
     - if @importants.length != 0
       = render partial: "negotiation", collection: @importants
     - else
@@ -13,8 +14,9 @@
   .middle-container
     .newest-negotiation
       %span.title-box
-        %i.fas.fa-hands-helping
-        最近の商談
+        = link_to negotiation_list_negotiations_path, data: {"turbolinks" => false} do
+          %i.fas.fa-hands-helping
+          最近の商談
       - if @negotiations.length != 0
         = render partial: "negotiation", collection: @negotiations
       - else
@@ -24,8 +26,9 @@
 
     .newest-customer
       %span.title-box
-        %i.fas.fa-building
-        最近追加された取引先
+        = link_to customers_path, data: {"turbolinks" => false} do
+          %i.fas.fa-building
+          最近追加された取引先
       - if @customers.length != 0
         = render partial: "customers/customer", collection: @customers
       - else
