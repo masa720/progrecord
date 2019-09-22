@@ -18,10 +18,18 @@
           .list-container__search__box__item
             = f.label :customer_id_eq, '取引先'
             = f.collection_select( :customer_id_eq, @customers, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
+ 
           .list-container__search__box__item
             = f.label :uer_id_eq, '担当者'
-            = f.collection_select( :user_id_eq, @users, :id, :last_name, {include_blank:  "指定なし"}, {class: "search-list"})
-        
+            = f.collection_select( :user_id_eq, @users, :id, :view_last_name_and_first_name, {include_blank:  "指定なし"}, {class: "search-list"})
+ 
+          .list-container__search__box__item
+            = f.label :department_id_eq, '関連部署'
+            = f.collection_select( :department_id_eq, Department.all, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
+
+          .list-container__search__box__item
+            = f.label :content_id_eq, '商談内容'
+            = f.collection_select( :content_id_eq, Content.all, :id, :name, {include_blank:  "指定なし"}, {class: "search-list"})
     .list-container__result
       - if @result.any?
         %i.fas.fa-filter

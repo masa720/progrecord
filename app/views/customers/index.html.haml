@@ -17,14 +17,14 @@
           %i.fas.fa-search
           = f.text_field :name_or_person_cont, class: "search-area"
           = f.submit "検索する", class: "search-btn"
-        -# .list-container__search__box
-        -#   .list-container__search__box__item
-        -#     = f.label :category_eq, '取引先'
-        -#     = f.collection_select( :category_eq, @customers.category, {include_blank: "指定なし"}, {class: "search-list"})
-        -#   -# .list-container__search__box__item
-        -#   -#   = f.label :person_eq, '担当者'
-          -#   = f.collection_select( :person_eq, @customers, :id, :person, {include_blank: "指定なし"}, {class: "search-list"})
-        
+        .list-container__search__box
+          .list-container__search__box__item
+            = f.label :category_id_eq, 'カテゴリー'
+            = f.collection_select( :category_id_eq, Category.all, :id, :name, {include_blank: "指定なし"}, {class: "search-list"})
+
     .list-container__result
       - if @cs_result.any?
+        %i.fas.fa-filter
+        = sort_link(@cs_search, :name, "登録名")
+        = sort_link(@cs_search, :updated_at, "登録順")
         = render @cs_result

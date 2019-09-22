@@ -47,7 +47,7 @@ class CustomersController < ApplicationController
 
   private
   def new_params
-    params.require(:customer).permit(:name, :category, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
+    params.require(:customer).permit(:name, :category_id, :person, :position, :tel, :mobile, :fax, :email, :product, :remarks)
   end
 
   def set_customer

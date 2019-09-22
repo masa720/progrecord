@@ -7,6 +7,6 @@
         .nego-box__body__contents__element
           日付：#{negotiation.year}/#{negotiation.month}/#{negotiation.day}
         .nego-box__body__contents__element
-          対応者:#{negotiation.user.last_name}
+          対応者：#{negotiation.user.last_name} #{negotiation.user.first_name}
       .nego-box__body__contents
         取引先：#{negotiation.customer.name}

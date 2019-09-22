@@ -2,8 +2,8 @@ class NegotiationsController < ApplicationController
   before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @negotiations = Negotiation.where(params[:id])
-    @customers = Customer.where(params[:id])
+    @negotiations = Negotiation.where(params[:id]).order(created_at: "DESC").limit(3)
+    @customers = Customer.where(params[:id]).order(created_at: "DESC").limit(3)
     @importants = Negotiation.includes(:user).where(importance: "★★★★").or(Negotiation.includes(:user).where(importance: "★★★★★")).order(created_at: "DESC").limit(3)
   end
 
@@ -54,7 +54,7 @@ class NegotiationsController < ApplicationController
 
   private
   def nego_params
-    params.require(:negotiation).permit(:customer_id, :year, :month, :day, :title, :body, :content, :importance, :department, :way, :next_nego, :next_year, :next_month, :next_day).merge(user_id: current_user.id)
+    params.require(:negotiation).permit(:customer_id, :user_id, :year, :month, :day, :title, :body, :content_id, :importance, :department_id, :way, :next_nego, :next_year, :next_month, :next_day)
   end
 
   def set_negotiation

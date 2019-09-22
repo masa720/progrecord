@@ -28,6 +28,10 @@
       border-radius: 5px;
       border: solid 1px rgb(233, 229, 229);
     }
+    #customer_remarks {
+      width: 450px;
+      padding: 5px 10px;
+    }
   }
   .submit-cstm {
     background-color: #F0F8FF;
@@ -68,6 +72,9 @@
       padding: 10px;
       margin: 0 auto;
       height: 200px;
+      p {
+        padding: 0
+      }
     }
   }
   &__edit {

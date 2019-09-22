@@ -39,7 +39,7 @@ class ContinuationsController < ApplicationController
 
   private
   def conti_params
-    params.require(:continuation).permit(:text, :year, :month, :day, :way, :next_nego, :next_year, :next_month, :next_day).merge(user_id: current_user.id, negotiation_id: @negotiation.id)
+    params.require(:continuation).permit(:text, :user_id, :year, :month, :day, :way, :next_nego, :next_year, :next_month, :next_day).merge(negotiation_id: @negotiation.id)
   end
 
   def set_negotiation
