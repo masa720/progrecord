@@ -25,7 +25,7 @@
             担当：#{@continuation.user.last_name} #{@continuation.user.first_name}
       .main-nego__detail__box
         .main-nego__detail__box__body
-          = @continuation.text
+          = safe_join(@continuation.text.split("\n"), tag(:br))
       .main-nego__detail__box
         .main-nego__detail__box__container
           %p

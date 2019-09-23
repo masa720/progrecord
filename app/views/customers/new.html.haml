@@ -10,7 +10,7 @@
           = f.label :会社名
           %span.require 必須
           %br/
-          = f.text_field :name
+          = f.text_field :name, class: "require-check"
 
         .field
           = f.label :カテゴリ
@@ -21,7 +21,7 @@
         .field
           = f.label :営業担当
           %span.require 必須
-          = f.text_field :person
+          = f.text_field :person, class: "require-check"
 
         .field
           = f.label :役職
@@ -29,19 +29,19 @@
 
         .field
           = f.label :電話番号
-          = f.text_field :tel, placeholder: "ハイフン無し"
+          = f.text_field :tel, placeholder: "ハイフン無し", class: "telephone"
 
         .field
           = f.label :営業携帯電話
-          = f.text_field :mobile, placeholder: "ハイフン無し"
+          = f.text_field :mobile, placeholder: "ハイフン無し", class: "mobile_phone"
 
         .field
           = f.label :FAX
-          = f.text_field :fax, placeholder: "ハイフン無し"
+          = f.text_field :fax, placeholder: "ハイフン無し", class: "telephone"
 
         .field
           = f.label :メールアドレス
-          = f.text_field :email
+          = f.text_field :email, class: "email"
 
         .field
           = f.label :取扱商材

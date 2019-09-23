@@ -10,7 +10,7 @@
           = f.label :会社名
           %span.require 必須
           %br/
-          = f.text_field :name
+          = f.text_field :name, class: "require-check"
 
         .field
           = f.label :カテゴリ
@@ -21,7 +21,7 @@
         .field
           = f.label :営業担当
           %span.require 必須
-          = f.text_field :person
+          = f.text_field :person, class: "require-check"
 
         .field
           = f.label :役職

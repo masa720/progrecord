@@ -15,7 +15,7 @@
       = search_form_for @cs_search , url: customers_path do |f|
         .list-container__search__area
           %i.fas.fa-search
-          = f.text_field :name_or_person_cont, class: "search-area"
+          = f.text_field :name_or_product_or_person_cont, placeholder: "　社名 or 担当者 or 取扱商材を入力", class: "search-area"
           = f.submit "検索する", class: "search-btn"
         .list-container__search__box
           .list-container__search__box__item

@@ -148,6 +148,78 @@ $(function(){//名必須判定
   });
 });
 
+$(function(){//必須判定
+  $('.require-check').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">何か入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
+$(function(){//携帯番号判定
+  $('.mobile_phone').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      return true;
+    }
+    else if (!value.match(/^0[789]0(-\d{4}-\d{4}|\d{8})$/)){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
+$(function(){//電話判定
+  $('.telephone').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      return true;
+    }
+    else if (!value.match(/^0\d{1,4}(-\d{1,4}-\d{4}|\d{6,8})$/)){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
 $(function(){//User登録前判定
   $('form').on('submit',function(){
     let error = $(this).find('span.error-info').length;

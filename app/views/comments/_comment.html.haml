@@ -10,7 +10,7 @@
           %i.fas.fa-times-circle.comment-delete-btn
     .comment-rcontainer__box
       .comment-rcontainer__box__body
-        = comment.body
+        = safe_join(comment.body.split("\n"), tag(:br))
       .comment-rcontainer__box__body
         %i.far.fa-clock
         = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
@@ -22,7 +22,7 @@
       = comment.user.first_name
     .comment-lcontainer__box
       .comment-lcontainer__box__body
-        = comment.body
+        = safe_join(comment.body.split("\n"), tag(:br))
       .comment-lcontainer__box__body
         %i.far.fa-clock
         = comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")

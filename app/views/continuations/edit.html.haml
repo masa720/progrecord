@@ -9,7 +9,7 @@
         .field
           = f.label :商談内容
           %span.require 必須
-          = f.text_area :text
+          = f.text_area :text, class: "require-check"
 
         .field
           = f.label :担当者
@@ -33,6 +33,7 @@
 
         .field
           = f.label :応対方法
+          %span.require 必須
           = f.select :way, ["面会", "電話", "メール", "書面", "その他"], {prompt: "--"}
 
         .field
