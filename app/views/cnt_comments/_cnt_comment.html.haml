@@ -16,10 +16,11 @@
         = cnt_comment.updated_at.strftime("%Y年 %-m月 %-d日 %H:%M")
 - else
   .comment-lcontainer
-    .comment-lcontainer__box
-      %i.fas.fa-portrait
-      = cnt_comment.user.last_name
-      = cnt_comment.user.first_name
+    .comment-rcontainer__head
+      .comment-rcontainer__head__name
+        %i.fas.fa-portrait
+        = cnt_comment.user.last_name
+        = cnt_comment.user.first_name
     .comment-lcontainer__box
       .comment-lcontainer__box__body
         = safe_join(cnt_comment.body.split("\n"), tag(:br))
