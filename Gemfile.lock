@@ -84,9 +84,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.8.1)
-      devise (>= 4.6)
-    devise-i18n-views (0.3.7)
     erb2haml (0.1.5)
       html2haml
     erubi (1.8.0)
@@ -255,8 +252,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  devise-i18n
-  devise-i18n-views
   erb2haml
   haml-rails
   jbuilder (~> 2.5)
