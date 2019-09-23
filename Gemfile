@@ -53,8 +53,6 @@ group :development do
   gem 'haml-rails'
   gem 'erb2haml'
   gem 'active_hash'
-  gem 'devise-i18n'
-  gem 'devise-i18n-views'
   gem 'ransack'
 end
 
