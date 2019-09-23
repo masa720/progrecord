@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'devise'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,7 +18,7 @@ module Progrecord
       g.test_framework false
     end
     # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
+    # Application configuration can go into files in config/0initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
