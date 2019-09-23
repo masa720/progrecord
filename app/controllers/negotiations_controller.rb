@@ -1,4 +1,5 @@
 class NegotiationsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :negotiation_list]
   before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
 
   def index

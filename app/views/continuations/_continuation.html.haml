@@ -12,7 +12,7 @@
                 担当：#{cont.user.last_name} #{cont.user.first_name}
           .main-nego__detail__box
             .main-nego__detail__box__body
-              = cont.text
+              = safe_join(cont.text.split("\n"), tag(:br))
           .main-nego__detail__box
             .main-nego__detail__box__container
               %p

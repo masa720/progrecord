@@ -37,7 +37,7 @@
             = @negotiation.customer.name
       .main-nego__detail__box
         .main-nego__detail__box__body
-          = simple_format(@negotiation.body)
+          = safe_join(@negotiation.body.split("\n"), tag(:br))
       .main-nego__detail__box
         .main-nego__detail__box__container
           %p

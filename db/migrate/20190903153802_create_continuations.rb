@@ -1,9 +1,9 @@
 class CreateContinuations < ActiveRecord::Migration[5.2]
   def change
     create_table :continuations do |t|
-      t.integer :user_id
-      t.integer :negotiation_id
-      t.text :text
+      t.integer :user_id, null: false
+      t.integer :negotiation_id, null: false
+      t.text :text, null: false
       t.integer :year, null:false
       t.integer :month, null:false
       t.integer :day, null:false

@@ -31,7 +31,7 @@
         %p
           ※備考
         .customer-back__box__remarks
-          = simple_format(@customer.remarks)
+          = safe_join(@customer.remarks.split("\n"), tag(:br))
       .customer-back__edit
         = link_to "編集", edit_customer_path, class: "customer-btn"
         = link_to "削除", customer_path, method: :delete, class: "customer-delete customer-btn"

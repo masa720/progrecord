@@ -15,9 +15,8 @@
     }
     .nego-back {
       background-color: #F5F5F5;
-      border: solid 3px #F5F5F5;
       .field {
-        border-bottom: 2px solid rgb(233, 229, 229);
+        border-bottom: 1px solid rgb(233, 229, 229);
         input {
           padding: 0 10px;
         }
@@ -74,6 +73,10 @@
   padding: 0 20px;
 }
 
+.error-info {
+  color: #EE0000;
+  font-weight: bold;
+}
 
 //商談詳細
 
@@ -197,7 +200,6 @@
           background-color: #F5F5F5;
         }
       }
-
     }
   }
 }
