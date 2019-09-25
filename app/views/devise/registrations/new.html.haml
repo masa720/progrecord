@@ -28,17 +28,17 @@
         = f.text_field :first_name, placeholder: "例) 太郎", class: "first_name"
 
       .field
-        = f.label :email
+        = f.label :email, "メールアドレス"
         %span.require 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "email"
       .field
-        = f.label :password
+        = f.label :password, "パスワード"
         %span.require 必須
         %br/
         = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "password"
       .field
-        = f.label :password_confirmation
+        = f.label :password_confirmation, "パスワード（確認）"
         %span.require 必須
         %br/
         = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "password_confirmation"
