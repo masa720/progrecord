@@ -51,6 +51,5 @@ production:
   <<: *default
   database: progrecord_production
   username: progrecord
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['PROGRECORD_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
