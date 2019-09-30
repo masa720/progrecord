@@ -1,0 +1,34 @@
+.notification-container {
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__box {
+    &__detail {
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      border-bottom: solid 1px rgb(211, 209, 209);
+      &__item {
+        a {
+          color: #000044;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+      }
+      &__time {
+        font-size: 14px;
+        text-align: right;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.comment-notification {
+  margin-left: 10px;
+  &__word {
+    color: rgb(175, 174, 174);
+  }
+}

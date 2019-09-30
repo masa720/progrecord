@@ -1,9 +1,9 @@
 .container
-  .main-nego
+  .list-container
     .notification-container
-      %h4.sub-title 通知
+      %h2.notification-title 通知一覧
       - if @notifications.exists?
-        .users-index
+        .notification-container__box
           = render partial: "notification", collection: @notifications
           = paginate @notifications
       - else
