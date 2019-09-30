@@ -1,3 +1,4 @@
+= render "shared/header"
 .container
   .list-container
     .notification-container
@@ -11,4 +12,3 @@
           = render partial: "notification", collection: @notifications
           = paginate @notifications
 
-= render "shared/header"
