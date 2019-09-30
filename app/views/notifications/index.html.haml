@@ -1,0 +1,12 @@
+.container
+  .main-nego
+    .notification-container
+      %h4.sub-title 通知
+      - if @notifications.exists?
+        .users-index
+          = render partial: "notification", collection: @notifications
+          = paginate @notifications
+      - else
+        %p 通知はありません
+
+= render "shared/header"

@@ -30,11 +30,14 @@
           %li
             = link_to "商談記録登録", new_negotiation_path, data: {"turbolinks" => false}
     %ul.nav-ver-item
-      %li.nav-ver-item__info
-        %i.far.fa-bell
-        %i.fas.fa-caret-down
-        .header-item__info__window
-          //新着コメントと進捗をJSでコントロール、余裕があれば件数バッチも
+      - if user_signed_in?
+        %li.nav-ver-item__info
+          =link_to notifications_path do
+            %i.far.fa-bell
+            - if unchecked_notifications.any?
+              - if @exist != 0
+                %span.notification-count
+                  #{@exist}
       %li.nav-ver-item__user.dropdwn
         - if user_signed_in?
           .nav-ver-item__user__name
@@ -54,10 +57,3 @@
         - else
           = link_to "新規登録", new_user_registration_path, class: "sign-up-btn"
           = link_to "ログイン", new_user_session_path, class: "sign-in-btn"
-
-    -# .nav-toggle
-    -#   .nav-toggle__inner
-    -#     .nav-toggle__inner__bar1
-    -#     .nav-toggle__inner__bar2
-    -#     .nav-toggle__inner__bar3
-    -# .nav-drawer
