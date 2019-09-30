@@ -8,9 +8,6 @@
         %i.fas.fa-edit
         取引先登録
 
-    -# .contents
-    -#   - @customers.each do |customer|
-    -#     = render partial: "customer", locals: { customer: customer }
     .list-container__search
       = search_form_for @cs_search , url: customers_path do |f|
         .list-container__search__area

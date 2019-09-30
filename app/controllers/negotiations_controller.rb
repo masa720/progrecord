@@ -5,6 +5,7 @@ class NegotiationsController < ApplicationController
   def index
     @negotiations = Negotiation.where(params[:id]).order(created_at: "DESC").limit(3)
     @customers = Customer.where(params[:id]).order(created_at: "DESC").limit(3)
+    # @exist = Notification.where(visited_id: current_user.id,checked: '0').count
     @importants = Negotiation.includes(:user).where(importance: "★★★★").or(Negotiation.includes(:user).where(importance: "★★★★★")).order(created_at: "DESC").limit(3)
   end
 
@@ -51,6 +52,10 @@ class NegotiationsController < ApplicationController
     @result = @search.result
     @customers = Customer.where(params[:id])
     @users = User.where(params[:id])
+  end
+
+  def count
+    @exist = Notification.where(checked: '0').count
   end
 
   private

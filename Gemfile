@@ -71,6 +71,7 @@ gem 'erb2haml'
 gem 'active_hash'
 gem 'devise'
 gem 'ransack'
+gem 'kaminari', '~> 0.17.0'
 
 group :production do
   gem 'unicorn', '5.4.1'

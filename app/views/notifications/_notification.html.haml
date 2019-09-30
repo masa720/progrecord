@@ -1,0 +1,14 @@
+.notification-container__box__detail
+  .notification-container__box__detail__item
+    = notification_form(notification)
+  - if @comment
+    .comment-notification
+      %p.comment-notification__word
+        = @comment
+  - elsif @cnt_comment
+    .comment-notification
+      %p.comment-notification__word
+        = @cnt_comment
+  - else
+  %p.notification-container__box__detail__time
+    = " (#{time_ago_in_words(notification.created_at)}前)"
