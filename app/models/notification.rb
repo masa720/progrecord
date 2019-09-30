@@ -3,4 +3,5 @@ class Notification < ApplicationRecord
   belongs_to :continuation, optional: true
   belongs_to :comment, optional: true
   belongs_to :cnt_comment, optional: true
+  belongs_to :user, optional: true
 end
