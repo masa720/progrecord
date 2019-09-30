@@ -2,11 +2,13 @@
   .list-container
     .notification-container
       %h2.notification-title 通知一覧
-      - if @notifications.exists?
+      - if @notifications.empty?
+        .notification-container__box
+          %p
+            通知はありません
+      - else
         .notification-container__box
           = render partial: "notification", collection: @notifications
           = paginate @notifications
-      - else
-        %p 通知はありません
 
 = render "shared/header"
