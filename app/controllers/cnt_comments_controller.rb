@@ -9,8 +9,9 @@ class CntCommentsController < ApplicationController
   end
 
   def create
-    if CntComment.create(cntcomment_params)
-      # binding.pry
+    @cnt_comment = @continuation.cnt_comments.new(cntcomment_params)
+    if @cnt_comment.save
+      @cnt_comment.create_notification_by(current_user)
       redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
     else
       render :new

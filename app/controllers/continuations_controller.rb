@@ -12,7 +12,9 @@ class ContinuationsController < ApplicationController
   end
 
   def create
-    if Continuation.create(conti_params)
+    @continuation = @negotiation.continuations.new(conti_params)
+    if @continuation.save
+      @continuation.create_notification_by(current_user)
       redirect_to root_path
     else
       render :new

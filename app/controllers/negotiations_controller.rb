@@ -5,7 +5,18 @@ class NegotiationsController < ApplicationController
   def index
     @negotiations = Negotiation.where(params[:id]).order(created_at: "DESC").limit(3)
     @customers = Customer.where(params[:id]).order(created_at: "DESC").limit(3)
+    # @exist = Notification.where(visited_id: current_user.id,checked: '0').count
     @importants = Negotiation.includes(:user).where(importance: "★★★★").or(Negotiation.includes(:user).where(importance: "★★★★★")).order(created_at: "DESC").limit(3)
+    if user_signed_in?
+      @exist = Notification.where(visited_id: current_user.id,checked: '0').count
+    end
+  end
+
+  def notifications
+    @notifications = current_user.passive_notifications.page(params[:page]).per(10)
+    @notifications.where(checked: false).each do |notification|
+      notification.update_attributes(checked: true)
+    end 
   end
 
   def show
@@ -51,6 +62,10 @@ class NegotiationsController < ApplicationController
     @result = @search.result
     @customers = Customer.where(params[:id])
     @users = User.where(params[:id])
+  end
+
+  def count
+    @exist = Notification.where(checked: '0').count
   end
 
   private

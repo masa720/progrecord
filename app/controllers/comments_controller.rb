@@ -5,8 +5,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @negotiation.comments.new(comment_params)
-    # binding.pry
     if @comment.save
+      @comment.create_notification_by(current_user)
       redirect_to negotiation_path(@negotiation.id)
     else
       render :new
