@@ -1,14 +1,13 @@
+- notifications = @notifications.all
+= render "shared/header"
 .container
   .list-container
     .notification-container
       %h2.notification-title 通知一覧
-      - if @notifications.empty?
+      - if notifications.exists?
         .notification-container__box
-          %p
-            通知はありません
+          = render notifications
+          = paginate notifications
       - else
-        .notification-container__box
-          = render partial: "notification", collection: @notifications
-          = paginate @notifications
-= render "shared/header"
-
+        %p
+          通知はありません
