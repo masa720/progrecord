@@ -1,13 +1,13 @@
--# - notifications = @notifications.all
+- notifications = @notifications.all
 = render "shared/header"
 .container
   .list-container
     .notification-container
       %h2.notification-title 通知一覧
-      -# - if notifications.exists?
-      -#   .notification-container__box
-      -#     = render notifications
-      -#     = paginate notifications
-      -# - else
-      -#   %p
-      -#     通知はありません
+      - if notifications.exists?
+        .notification-container__box
+          = render notifications
+          = paginate notifications
+      - else
+        %p
+          通知はありません
