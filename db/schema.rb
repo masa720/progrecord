@@ -100,12 +100,12 @@ ActiveRecord::Schema.define(version: 2019_09_29_015829) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "visiter_id"
-    t.integer "visited_id"
+    t.integer "visiter_id", null: false
+    t.integer "visited_id", null: false
     t.integer "continuation_id"
     t.integer "comment_id"
     t.integer "cnt_comment_id"
-    t.string "action"
+    t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
