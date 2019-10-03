@@ -72,6 +72,7 @@ gem 'active_hash'
 gem 'devise'
 gem 'ransack'
 gem 'kaminari', '~> 0.17.0'
+gem 'react-rails', '~> 1.7.0'
 
 group :production do
   gem 'unicorn', '5.4.1'
