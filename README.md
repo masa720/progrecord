@@ -102,7 +102,6 @@
 |body|text|null:false|
 |user_id|references|null:false,foreign_key: true|
 |way|string|null:false|
-|limit|string||
 |next_nego|string||
 |next_year|integer||
 |next_month|integer||
