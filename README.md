@@ -51,7 +51,7 @@
 |Column|Type|option|
 |------|----|------|
 |name|string|null:false|
-|category|string|null:false|
+|category_id|integer|null:false|
 |person|string|null:false|
 |position|string||
 |tel|string||
@@ -74,10 +74,10 @@
 |day|integer|null:false|
 |title|string|null:false|
 |body|text|null:false|
-|content|string|null:false|
+|content_id|integer|null:false|
 |importance|string|null:false|
 |user_id|references|null:false,foreign_key: true|
-|department|string|--------|
+|department_id|integer||
 |way|string|null:false|
 |next_nego|string||
 |next_year|integer||
