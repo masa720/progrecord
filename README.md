@@ -125,7 +125,7 @@
 - belongs_to :negotiation
 - belongs_to :user
 - has_many :notifications, dependent: :destroy
-ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
 ## cnt_commentsテーブル
 |Column|Type|option|
 |------|----|------|
