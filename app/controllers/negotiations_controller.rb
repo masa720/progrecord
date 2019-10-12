@@ -1,5 +1,5 @@
 class NegotiationsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :negotiation_list]
+  # before_action :authenticate_user!, except: [:index, :show, :negotiation_list]
   before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,9 +53,9 @@ class NegotiationsController < ApplicationController
     @users = User.where(params[:id])
   end
 
-  def count
-    @exist = Notification.where(checked: '0').count
-  end
+  # def count
+  #   @exist = Notification.where(checked: '0').count
+  # end
 
   private
   def nego_params

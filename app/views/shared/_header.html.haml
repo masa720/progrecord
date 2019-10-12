@@ -30,17 +30,17 @@
           %li
             = link_to "商談記録登録", new_negotiation_path, data: {"turbolinks" => false}
     %ul.nav-ver-item
-      - if user_signed_in?
-        %li.nav-ver-item__info
-          = link_to notifications_path do
-            %i.far.fa-bell.notification
-            - if unchecked_notifications.any?
-              - if @exist > 99
-                %span.notification-count
-                  +99
-              - elsif @exist != 0
-                %span.notification-count
-                  #{@exist}
+      -# - if user_signed_in?
+      -#   %li.nav-ver-item__info
+      -#     = link_to notifications_path do
+      -#       %i.far.fa-bell.notification
+      -#       - if unchecked_notifications.any?
+      -#         - if @exist > 99
+      -#           %span.notification-count
+      -#             +99
+      -#         - elsif @exist != 0
+      -#           %span.notification-count
+      -#             #{@exist}
       %li.nav-ver-item__user.dropdwn
         - if user_signed_in?
           .nav-ver-item__user__name
