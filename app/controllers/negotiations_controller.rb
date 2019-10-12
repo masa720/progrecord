@@ -48,7 +48,7 @@ class NegotiationsController < ApplicationController
   def negotiation_list
     @negotiations = Negotiation.where(params[:id])
     @search = Negotiation.ransack(params[:q])
-    @result = @search.result
+    @result = @search.result.page(params[:page]).per(10).order("created_at DESC")
     @customers = Customer.where(params[:id])
     @users = User.where(params[:id])
   end
