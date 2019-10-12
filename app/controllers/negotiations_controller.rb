@@ -1,6 +1,6 @@
 class NegotiationsController < ApplicationController
-  # before_action :authenticate_user!, except: [:index, :show, :negotiation_list]
-  # before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :negotiation_list]
+  before_action :set_negotiation, only: [:show, :edit, :update, :destroy]
 
   def index
     @negotiations = Negotiation.where(params[:id]).order(created_at: "DESC").limit(3)
@@ -48,14 +48,14 @@ class NegotiationsController < ApplicationController
   def negotiation_list
     @negotiations = Negotiation.where(params[:id])
     @search = Negotiation.ransack(params[:q])
-    @result = @search.result
+    @result = @search.result.page(params[:page]).per(10).order("created_at DESC")
     @customers = Customer.where(params[:id])
     @users = User.where(params[:id])
   end
 
-  # def count
-  #   @exist = Notification.where(checked: '0').count
-  # end
+  def count
+    @exist = Notification.where(checked: '0').count
+  end
 
   private
   def nego_params
