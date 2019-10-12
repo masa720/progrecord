@@ -72,7 +72,7 @@ gem 'active_hash'
 gem 'devise'
 gem 'ransack'
 gem 'kaminari', '~> 0.17.0'
-gem 'react-rails', '~> 1.7.0'
+gem 'react-rails'
 gem 'webpacker'
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
