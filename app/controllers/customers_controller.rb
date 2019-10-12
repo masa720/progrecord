@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
   def index
     @customers = Customer.where(params[:id])
     @cs_search = Customer.ransack(params[:q])
-    @cs_result = @cs_search.result.page(params[:page]).per(20).order("created_at DESC")
+    @cs_result = @cs_search.result.page(params[:page]).per(10).order("created_at DESC")
   end
 
   def show
