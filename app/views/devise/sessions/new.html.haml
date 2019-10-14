@@ -17,11 +17,11 @@
       .field
         = f.label :email, "メールアドレス"
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "email"
+        = f.email_field :email, value: "test@com", autofocus: true, autocomplete: "email", class: "email"
       .field
         = f.label :password, "パスワード"
         %br/
-        = f.password_field :password, autocomplete: "current-password", placeholder: "6文字以上", class: "password"
+        = f.password_field :password, value: "123456", autocomplete: "current-password", placeholder: "6文字以上", class: "password"
       - if devise_mapping.rememberable?
         .field
           = f.check_box :remember_me, class: "check-box"
