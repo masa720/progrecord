@@ -1,4 +1,10 @@
-var Pin = React.createClass({
+Pin = React.createClass({
+
+  getInitialState: function(){
+    return {
+        is_pined: false
+    };
+  },
 
   ajaxMain: function(){
     console.log("Hello World!");
