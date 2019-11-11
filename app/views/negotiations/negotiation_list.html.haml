@@ -37,3 +37,4 @@
         = sort_link(@search, :importance, "重要度")
         = sort_link(@search, :updated_at, "更新順")
         = render @result
+    = paginate @result

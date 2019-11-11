@@ -25,3 +25,5 @@
         = sort_link(@cs_search, :name, "登録名")
         = sort_link(@cs_search, :updated_at, "登録順")
         = render @cs_result
+    
+    = paginate @cs_result

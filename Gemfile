@@ -45,6 +45,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -62,6 +65,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -76,6 +80,7 @@ gem 'react-rails'
 gem 'webpacker'
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
+gem 'rails-i18n', '~> 5.1'
 
 group :production do
   gem 'unicorn', '5.4.1'

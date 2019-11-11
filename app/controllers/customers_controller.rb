@@ -4,10 +4,8 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.where(params[:id])
-    # binding.pry
     @cs_search = Customer.ransack(params[:q])
-    @cs_result = @cs_search.result
-    # .includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    @cs_result = @cs_search.result.page(params[:page]).per(10).order("created_at DESC")
   end
 
   def show
@@ -18,7 +16,6 @@ class CustomersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @customer = Customer.new(new_params)
     if @customer.save
       redirect_to root_path
