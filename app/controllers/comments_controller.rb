@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       @comment.create_notification_by(current_user)
       redirect_to negotiation_path(@negotiation.id)
     else
-      render :new
+      redirect_to negotiation_path(@negotiation.id)
     end
   end
 
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       if @comment.destroy
         redirect_to negotiation_path(@negotiation.id)
       else
-        render :edit
+        redirect_to negotiation_path(@negotiation.id)
       end
     end
   end
