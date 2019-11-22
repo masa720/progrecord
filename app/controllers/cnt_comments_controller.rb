@@ -14,7 +14,7 @@ class CntCommentsController < ApplicationController
       @cnt_comment.create_notification_by(current_user)
       redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
     else
-      render :new
+      redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
     end
   end
 
@@ -23,7 +23,7 @@ class CntCommentsController < ApplicationController
       if @cnt_comment.destroy
         redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
       else
-        render :edit
+        redirect_to negotiation_continuation_path(@negotiation.id,@continuation.id)
       end
     end
   end
