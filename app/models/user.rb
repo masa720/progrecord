@@ -11,7 +11,17 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
-  validates :last_name, presence: true
+  validates :last_name, presence: true,
+                        format: {
+                          with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,
+                          message: "全角のみで入力して下さい"
+                        }
+
+  validates :first_name, presence: true,
+                        format: {
+                          with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,
+                          message: "全角のみで入力して下さい"
+                        }
 
   def view_last_name_and_first_name
     self.last_name + " " + self.first_name

@@ -3,6 +3,8 @@ class Continuation < ApplicationRecord
   belongs_to :user
   has_many :cnt_comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+
+  validates :text, presence: true, length: {in: 1..500}
   
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(
