@@ -3,7 +3,7 @@ $(function(){//メール必須判定
     let error;
     let value = $(this).val();
     if(value == ""){
-      error = true;
+      error = false;
     }
     else if (!value.match(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
       error = true;
@@ -175,9 +175,9 @@ $(function(){//携帯番号判定
     let error;
     let value = $(this).val();
     if(value == ""){
-      return true;
+      error = false;
     }
-    else if (!value.match(/^0[789]0(-\d{4}-\d{4}|\d{8})$/)){
+    else if (!value.match(/^0[789]0\d{8}$/)){
       error = true;
     }
 
@@ -200,9 +200,9 @@ $(function(){//電話判定
     let error;
     let value = $(this).val();
     if(value == ""){
-      return true;
+      error = false;
     }
-    else if (!value.match(/^0\d{1,4}(-\d{1,4}-\d{4}|\d{6,8})$/)){
+    else if (!value.match(/^0\d{9,10}$/)){
       error = true;
     }
 

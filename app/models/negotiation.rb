@@ -9,4 +9,7 @@ class Negotiation < ApplicationRecord
 
   validates :title, presence: true, length: {in: 1..50}
   validates :body, presence: true, length: {in: 1..500}
+  validates :year, presence: true
+  validates :month, presence: true
+  validates :day, presence: true
 end

@@ -5,7 +5,10 @@ class Continuation < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   validates :text, presence: true, length: {in: 1..500}
-  
+  validates :year, presence: true
+  validates :month, presence: true
+  validates :day, presence: true
+
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(
       continuation_id: id,
