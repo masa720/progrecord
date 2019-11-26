@@ -42,13 +42,13 @@
         .field
           = f.label :タイトル
           %span.require 必須
-          = f.text_field :title, class: "title-inputbox require-check"
+          = f.text_field :title, class: "title-inputbox require-check-title"
 
         .field
           = f.label :商談内容
           %span.require 必須
           %br/
-          = f.text_area :body, class:"negotiation-body require-check"
+          = f.text_area :body, class:"negotiation-body require-check-body"
 
         .field
           = f.label :重要度

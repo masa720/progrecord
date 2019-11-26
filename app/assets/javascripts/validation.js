@@ -112,7 +112,7 @@ $(function(){//姓必須判定
     if(error){//エラー時の処理
       //エラーで、エラーメッセージがなかったら
       if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
-        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+        $(this).after('</br><span class = "error-info">正しく姓を入力してください</span>');
       }
     }
     else {//エラーじゃないのにメッセージがあったら
@@ -137,7 +137,7 @@ $(function(){//名必須判定
     if(error){//エラー時の処理
       //エラーで、エラーメッセージがなかったら
       if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
-        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+        $(this).after('</br><span class = "error-info">正しく名を入力してください</span>');
       }
     }
     else {//エラーじゃないのにメッセージがあったら
@@ -148,8 +148,8 @@ $(function(){//名必須判定
   });
 });
 
-$(function(){//必須判定
-  $('.require-check').on('blur',function(){
+$(function(){//タイトル必須判定
+  $('.require-check-title').on('blur',function(){
     let error;
     let value = $(this).val();
     if(value == ""){
@@ -159,7 +159,73 @@ $(function(){//必須判定
     if(error){//エラー時の処理
       //エラーで、エラーメッセージがなかったら
       if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
-        $(this).after('</br><span class = "error-info">何か入力してください</span>');
+        $(this).after('</br><span class = "error-info">タイトルを入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
+$(function(){//内容必須判定
+  $('.require-check-body').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">内容を入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
+$(function(){//社名必須判定
+  $('.require-check-customer').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">会社名を入力してください</span>');
+      }
+    }
+    else {//エラーじゃないのにメッセージがあったら
+      if($(this).nextAll('span.error-info').length){//消す
+        $(this).nextAll('span.error-info').remove();
+      }
+    }
+  });
+});
+
+$(function(){//担当必須判定
+  $('.require-check-person').on('blur',function(){
+    let error;
+    let value = $(this).val();
+    if(value == ""){
+      error = true;
+    }
+
+    if(error){//エラー時の処理
+      //エラーで、エラーメッセージがなかったら
+      if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
+        $(this).after('</br><span class = "error-info">担当を入力してください</span>');
       }
     }
     else {//エラーじゃないのにメッセージがあったら
@@ -184,7 +250,7 @@ $(function(){//携帯番号判定
     if(error){//エラー時の処理
       //エラーで、エラーメッセージがなかったら
       if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
-        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+        $(this).after('</br><span class = "error-info">正しく携帯番号を入力してください</span>');
       }
     }
     else {//エラーじゃないのにメッセージがあったら
@@ -209,7 +275,7 @@ $(function(){//電話判定
     if(error){//エラー時の処理
       //エラーで、エラーメッセージがなかったら
       if(!$(this).nextAll('span.error-info').length){//メッセージを後ろに追加
-        $(this).after('</br><span class = "error-info">正しく入力してください</span>');
+        $(this).after('</br><span class = "error-info">正しく番号入力してください</span>');
       }
     }
     else {//エラーじゃないのにメッセージがあったら
